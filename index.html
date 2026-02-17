@@ -400,6 +400,9 @@ button { cursor: pointer; border: none; font-family: inherit; }
   gap: 24px;
   margin-top: 56px;
 }
+.solution-grid--4col {
+  grid-template-columns: repeat(4, 1fr);
+}
 .solution-card {
   padding: 48px 32px;
   background: var(--glass-bg);
@@ -428,6 +431,16 @@ button { cursor: pointer; border: none; font-family: inherit; }
   color: var(--c-text-muted);
   line-height: 1.85;
 }
+.solution-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--c-blue);
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+.solution-link:hover { opacity: 0.7; }
 
 /* ========================================
    Courses
@@ -755,6 +768,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
    ======================================== */
 @media (max-width: 1024px) {
   .hero-visual { display: none; }
+  .solution-grid--4col { grid-template-columns: repeat(2, 1fr); }
   .course-grid { grid-template-columns: 1fr 1fr; }
   .course-card:last-child { grid-column: 1 / -1; max-width: 500px; margin: 0 auto; }
 }
@@ -780,7 +794,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
     color: var(--c-text); font-size: 1.5rem; cursor: pointer;
   }
   .pain-grid { grid-template-columns: 1fr 1fr; }
-  .solution-grid { grid-template-columns: 1fr; }
+  .solution-grid, .solution-grid--4col { grid-template-columns: 1fr; }
   .course-grid { grid-template-columns: 1fr; }
   .course-card:last-child { max-width: 100%; }
   .enterprise-grid { grid-template-columns: 1fr; }
@@ -837,33 +851,33 @@ button { cursor: pointer; border: none; font-family: inherit; }
       リスキリング補助金 75%対応
     </div>
     <h1 class="hero-title">
-      <span class="highlight">日本語で話すだけ</span>で、<br>
-      アプリが作れる時代。
+      <span class="highlight">AIを味方に</span>つけて、<br>
+      あなたの「作りたい」を形に。
     </h1>
     <p class="hero-sub">
-      AIを味方につけて、あなたのアイデアを形にする。<br>
-      実践型AI開発講座で、<br>
-      プログラミング未経験からアプリ開発者へ。
+      アプリ開発、業務効率化、セキュアなAIシステム構築まで。<br>
+      学びたい人には講座を、任せたい企業には受託開発を。<br>
+      それぞれの課題に合わせた最適解を提供します。
     </p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">
         無料相談を予約する
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <a href="#courses" class="btn-secondary">講座の詳細を見る</a>
+      <a href="#pain" class="btn-secondary">あなたに合うサービスは？</a>
     </div>
     <div class="hero-trust">
       <div class="hero-trust-item">
         <span class="icon">&#128176;</span>
-        <span>実質 <strong>9万円〜</strong></span>
+        <span>補助金で <strong>最大75%OFF</strong></span>
       </div>
       <div class="hero-trust-item">
-        <span class="icon">&#128197;</span>
-        <span>最短 <strong>5日間</strong>で習得</span>
+        <span class="icon">&#128187;</span>
+        <span><strong>個人も企業も</strong>対応</span>
       </div>
       <div class="hero-trust-item">
-        <span class="icon">&#127891;</span>
-        <span><strong>未経験OK</strong></span>
+        <span class="icon">&#128274;</span>
+        <span><strong>セキュリティ対応</strong></span>
       </div>
     </div>
   </div>
@@ -885,30 +899,30 @@ AI: 承知しました。
 <section class="pain section" id="pain">
   <div class="container">
     <div class="reveal">
-      <p class="section-label">Problem</p>
-      <h2 class="section-title">こんな悩み、ありませんか？</h2>
-      <p class="section-subtitle">多くの方が同じ壁にぶつかっています。でも、もうその壁は存在しません。</p>
+      <p class="section-label">Your Challenge</p>
+      <h2 class="section-title">あなたの課題は、どれですか？</h2>
+      <p class="section-subtitle">それぞれの課題に合わせた解決策をご用意しています。</p>
     </div>
     <div class="pain-grid">
       <div class="pain-card reveal">
-        <div class="pain-icon">&#128561;</div>
-        <h3>プログラミングは<br>難しそう...</h3>
-        <p>英語のコードを何行も書くイメージがあり、自分には無理だと諦めていませんか？</p>
+        <div class="pain-icon">&#128161;</div>
+        <h3>作りたいアプリが<br>あるけれど...</h3>
+        <p>アイデアはある。でもプログラミング経験がなく、どこから始めればいいかわからない。外注すると高額で手が出ない。</p>
       </div>
       <div class="pain-card reveal">
-        <div class="pain-icon">&#127468;&#127463;</div>
-        <h3>英語ができないと<br>無理では？</h3>
-        <p>プログラミング＝英語のイメージ。でもAI時代は日本語だけで開発できます。</p>
+        <div class="pain-icon">&#9889;</div>
+        <h3>AIで業務を<br>効率化したい</h3>
+        <p>AIが話題だけど、自分の仕事にどう使えばいいか具体的にわからない。使いこなせるか不安。</p>
       </div>
       <div class="pain-card reveal">
-        <div class="pain-icon">&#129302;</div>
-        <h3>AIって本当に<br>使えるの？</h3>
-        <p>話題のAI、でも実際の業務やアプリ開発にどう使えばいいかわからない。</p>
+        <div class="pain-icon">&#128640;</div>
+        <h3>AIは使っているが<br>もっと活用したい</h3>
+        <p>ChatGPTは日常的に使っている。でも本格的なアプリ開発や業務自動化にはまだ踏み出せていない。</p>
       </div>
       <div class="pain-card reveal">
-        <div class="pain-icon">&#128176;</div>
-        <h3>高額な学費が<br>心配...</h3>
-        <p>スクール費用は高い。でもリスキリング補助金を使えば、最大75%OFFに。</p>
+        <div class="pain-icon">&#128274;</div>
+        <h3>AI活用したいが<br>セキュリティが心配</h3>
+        <p>社内データをAIに渡して大丈夫？情報漏洩リスクが怖くて、AI導入に踏み切れない企業の方へ。</p>
       </div>
     </div>
   </div>
@@ -919,24 +933,33 @@ AI: 承知しました。
   <div class="container">
     <div class="reveal" style="text-align:center;">
       <p class="section-label">Solution</p>
-      <h2 class="section-title">AIが、プログラミングの<br>常識を変えた。</h2>
-      <p class="section-subtitle" style="margin:0 auto;">もう英語のコードを覚える必要はありません。日本語で指示するだけで、AIがコードを生成します。</p>
+      <h2 class="section-title">あなたの課題に合わせた<br>解決策があります。</h2>
+      <p class="section-subtitle" style="margin:0 auto;">個人の学びから企業のAI導入まで、それぞれに最適なアプローチを提供します。</p>
     </div>
-    <div class="solution-grid">
+    <div class="solution-grid solution-grid--4col">
       <div class="solution-card reveal">
         <div class="solution-number">01</div>
-        <h3>日本語で指示するだけ</h3>
-        <p>「こんなアプリを作って」と日本語で伝えるだけ。AIがコード・デザイン・データベースまで自動生成。</p>
+        <h3>日本語だけでアプリ開発</h3>
+        <p>プログラミング不要。日本語でAIに指示するだけで、あなたのアイデアがアプリになります。最短5日間で体験。</p>
+        <a href="#courses" class="solution-link">体験コース / 本気コースへ &darr;</a>
       </div>
       <div class="solution-card reveal">
         <div class="solution-number">02</div>
-        <h3>最短5日間で実践力</h3>
-        <p>座学ではなく、実際にアプリを作りながら学ぶ実践型。5日間で自分のアプリが完成します。</p>
+        <h3>実務で使えるAI活用術</h3>
+        <p>AIを業務にどう組み込むか、実践を通じて習得。自分の業務に合わせたAI活用法が見つかります。</p>
+        <a href="#courses" class="solution-link">体験コース / 本気コースへ &darr;</a>
       </div>
       <div class="solution-card reveal">
         <div class="solution-number">03</div>
-        <h3>補助金で最大75%OFF</h3>
-        <p>リスキリング補助金対応で、36万円の講座が実質9万円から。学び直しを国がサポート。</p>
+        <h3>プロと一緒に本格開発</h3>
+        <p>AI活用の基礎はある方に。バックエンド・DB設計を含む本格開発スキルを習得し、プロの伴走で自走力を身につけます。</p>
+        <a href="#courses" class="solution-link">本気コース / 長期伴走コースへ &darr;</a>
+      </div>
+      <div class="solution-card reveal">
+        <div class="solution-number">04</div>
+        <h3>セキュアなAI環境構築</h3>
+        <p>データを外部に出さずにAIを活用。Vertex AIやローカルAIを使ったセキュアなシステムをプロが構築します。</p>
+        <a href="#enterprise" class="solution-link">受託開発サービスへ &darr;</a>
       </div>
     </div>
   </div>
@@ -948,7 +971,7 @@ AI: 承知しました。
     <div class="reveal" style="text-align:center;">
       <p class="section-label">Courses</p>
       <h2 class="section-title">あなたに合ったコースを選ぶ</h2>
-      <p class="section-subtitle" style="margin:0 auto;">ステップアップ式の3コースで、体験から本格開発、そして自走までサポートします。</p>
+      <p class="section-subtitle" style="margin:0 auto;">「自分で作れるようになりたい」方へ。体験から本格開発、自走まで段階的にサポートします。リスキリング補助金対応。</p>
     </div>
     <div class="course-grid">
       <!-- Course 1: 体験 -->
@@ -1017,7 +1040,7 @@ AI: 承知しました。
     <div class="reveal">
       <p class="section-label">Enterprise</p>
       <h2 class="section-title">受託開発サービス</h2>
-      <p class="section-subtitle">講座だけでなく、セキュリティ重視のAI開発や業務システムの受託開発も承ります。</p>
+      <p class="section-subtitle">「セキュリティが心配」「自社に合ったAIシステムが欲しい」企業の方へ。プロが要件定義から構築まで対応します。</p>
     </div>
     <div class="enterprise-grid">
       <div class="enterprise-card reveal">
