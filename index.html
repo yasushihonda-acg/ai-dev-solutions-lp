@@ -566,57 +566,6 @@ button { cursor: pointer; border: none; font-family: inherit; }
 }
 
 /* ========================================
-   Social Proof / Numbers
-   ======================================== */
-.proof {
-  background: var(--c-dark);
-  position: relative;
-}
-.proof::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
-}
-.proof-numbers {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 56px;
-  margin-bottom: 64px;
-}
-.proof-number {
-  text-align: center;
-  padding: 44px 28px;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
-  backdrop-filter: var(--glass-blur);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-}
-.proof-number .value {
-  font-family: var(--font-display);
-  font-size: 3.2rem; font-weight: 800;
-  filter: drop-shadow(0 0 20px rgba(0,136,255,0.15));
-}
-.proof-number .label {
-  font-size: 0.95rem;
-  color: var(--c-text-muted);
-  margin-top: 10px;
-}
-.proof-logos {
-  display: flex; align-items: center; justify-content: center;
-  gap: 48px; flex-wrap: wrap;
-  opacity: 0.4;
-}
-.proof-logos span {
-  font-family: var(--font-display);
-  font-size: 1.1rem; font-weight: 700;
-  letter-spacing: 0.05em;
-}
-
-/* ========================================
    Enterprise / 受託開発
    ======================================== */
 .enterprise { background: linear-gradient(180deg, var(--c-dark) 0%, #0c0c18 100%); }
@@ -834,7 +783,6 @@ button { cursor: pointer; border: none; font-family: inherit; }
   .solution-grid { grid-template-columns: 1fr; }
   .course-grid { grid-template-columns: 1fr; }
   .course-card:last-child { max-width: 100%; }
-  .proof-numbers { grid-template-columns: 1fr; gap: 16px; }
   .enterprise-grid { grid-template-columns: 1fr; }
   .hero-trust { flex-direction: column; gap: 16px; }
   .footer-inner { flex-direction: column; }
@@ -1063,38 +1011,6 @@ AI: 承知しました。
     <p class="course-note reveal">&#8251; リアル（対面）参加の場合、ホテル代・移動費は別途実費となります。</p>
   </div>
 </section>
-
-<!-- ========== Social Proof ========== -->
-<section class="proof section">
-  <div class="container">
-    <div class="reveal" style="text-align:center;">
-      <p class="section-label">Results</p>
-      <h2 class="section-title">実績が証明する、学びの価値。</h2>
-    </div>
-    <div class="proof-numbers">
-      <div class="proof-number reveal">
-        <div class="value gradient-text">240+</div>
-        <div class="label">講義コンテンツ数</div>
-      </div>
-      <div class="proof-number reveal">
-        <div class="value gradient-text">95%</div>
-        <div class="label">受講者満足度</div>
-      </div>
-      <div class="proof-number reveal">
-        <div class="value gradient-text">50+</div>
-        <div class="label">アプリ開発実績</div>
-      </div>
-    </div>
-    <div class="proof-logos reveal">
-      <span>LIFEFUND</span>
-      <span>A.C.G</span>
-      <span>Fellows</span>
-      <span>RANNY's</span>
-      <span>TechBridge</span>
-    </div>
-  </div>
-</section>
-
 <!-- ========== Enterprise ========== -->
 <section class="enterprise section" id="enterprise">
   <div class="container">
