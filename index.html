@@ -175,14 +175,16 @@ button { cursor: pointer; border: none; font-family: inherit; }
 .nav-links a:hover { color: var(--c-white); }
 .nav-cta {
   padding: 10px 24px;
-  background: var(--gradient-main);
+  background: linear-gradient(135deg, rgba(160,18,40,0.35), rgba(0,90,181,0.35));
+  border: 1.5px solid rgba(255,255,255,0.25);
   color: white;
   border-radius: 100px;
   font-size: 0.85rem; font-weight: 700;
   font-family: var(--font-display);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  backdrop-filter: blur(8px);
 }
-.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(0,136,255,0.3); }
+.nav-cta:hover { transform: translateY(-1px); background: var(--gradient-main); border-color: transparent; box-shadow: 0 4px 20px rgba(0,136,255,0.3); }
 .nav-hamburger {
   display: none; flex-direction: column; gap: 5px;
   background: none; border: none; cursor: pointer; padding: 4px;
@@ -409,7 +411,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   backdrop-filter: var(--glass-blur);
-  text-align: center;
+  text-align: left;
   transition: all 0.4s;
   box-shadow: 0 8px 32px rgba(0,0,0,0.15);
 }
@@ -934,7 +936,7 @@ AI: 承知しました。
     <div class="reveal" style="text-align:center;">
       <p class="section-label">Solution</p>
       <h2 class="section-title">あなたの課題に合わせた<br>解決策があります。</h2>
-      <p class="section-subtitle" style="margin:0 auto;">個人の学びから企業のAI導入まで、それぞれに最適なアプローチを提供します。</p>
+      <p class="section-subtitle" style="margin:0 auto;">個人の学びから企業のAI導入まで、最適なアプローチを提供します。</p>
     </div>
     <div class="solution-grid solution-grid--4col">
       <div class="solution-card reveal">
