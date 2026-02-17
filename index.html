@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI開発講座 | ホリエモンAI学校</title>
+<meta name="description" content="日本語で話すだけで、アプリが作れる時代。AIを味方につけて、あなたのアイデアを形にする実践型AI開発講座。リスキリング補助金対応で実質9万円〜。">
+<meta property="og:title" content="AI開発講座 | ホリエモンAI学校">
+<meta property="og:description" content="日本語で指示するだけでアプリ開発。最短5日間の実践型講座。リスキリング補助金75%対応。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ========================================
+   CSS Custom Properties
+   ======================================== */
+:root {
+  --c-red: #ff273c;
+  --c-blue: #0088ff;
+  --c-orange: #ef6c00;
+  --c-pink: #f14e66;
+  --c-green: #18a558;
+  --c-dark: #0a0a0f;
+  --c-dark-card: #111119;
+  --c-dark-border: rgba(255,255,255,0.08);
+  --c-text: #e8e8ed;
+  --c-text-muted: #8888a0;
+  --c-white: #ffffff;
+  --gradient-main: linear-gradient(135deg, var(--c-red), var(--c-blue));
+  --gradient-hero: linear-gradient(160deg, #0a0a1a 0%, #0d1b2a 40%, #1a0a1e 70%, #0a0a1a 100%);
+  --glass-bg: rgba(255,255,255,0.03);
+  --glass-border: rgba(255,255,255,0.06);
+  --glass-blur: blur(20px);
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --font-display: 'Sora', sans-serif;
+  --font-body: 'Zen Kaku Gothic New', sans-serif;
+  --shadow-glow: 0 0 60px rgba(0,136,255,0.15), 0 0 120px rgba(255,39,60,0.08);
+}
+
+/* ========================================
+   Reset & Base
+   ======================================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-body);
+  background: var(--c-dark);
+  color: var(--c-text);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; font-family: inherit; }
+
+/* ========================================
+   Utility
+   ======================================== */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 120px 0; position: relative; }
+.gradient-text {
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 18px 40px;
+  background: var(--gradient-main);
+  color: var(--c-white);
+  font-family: var(--font-display);
+  font-size: 1rem; font-weight: 700;
+  border-radius: 100px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 24px rgba(255,39,60,0.3), 0 4px 24px rgba(0,136,255,0.2);
+  position: relative; overflow: hidden;
+}
+.btn-primary::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+  opacity: 0; transition: opacity 0.3s;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(255,39,60,0.4), 0 8px 40px rgba(0,136,255,0.3); }
+.btn-primary:hover::before { opacity: 1; }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 36px;
+  background: transparent;
+  color: var(--c-text);
+  font-family: var(--font-display);
+  font-size: 0.95rem; font-weight: 600;
+  border-radius: 100px;
+  border: 1px solid var(--c-dark-border);
+  backdrop-filter: var(--glass-blur);
+  transition: all 0.3s;
+}
+.btn-secondary:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); }
+.section-label {
+  font-family: var(--font-display);
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--c-blue);
+  margin-bottom: 16px;
+}
+.section-title {
+  font-family: var(--font-body);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--c-text-muted);
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+/* ========================================
+   Navigation
+   ======================================== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 16px 0;
+  transition: all 0.4s;
+}
+.nav.scrolled {
+  background: rgba(10,10,15,0.85);
+  backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--c-dark-border);
+  padding: 10px 0;
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.1rem; font-weight: 800;
+  display: flex; align-items: center; gap: 10px;
+}
+.nav-logo .logo-mark {
+  width: 36px; height: 36px;
+  background: var(--gradient-main);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; color: white;
+}
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  font-size: 0.85rem; font-weight: 500;
+  color: var(--c-text-muted);
+  transition: color 0.3s;
+  font-family: var(--font-display);
+}
+.nav-links a:hover { color: var(--c-white); }
+.nav-cta {
+  padding: 10px 24px;
+  background: var(--gradient-main);
+  color: white;
+  border-radius: 100px;
+  font-size: 0.8rem; font-weight: 700;
+  font-family: var(--font-display);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(0,136,255,0.3); }
+.nav-hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.nav-hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--c-text); border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* ========================================
+   Hero
+   ======================================== */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: flex-start;
+  background: var(--gradient-hero);
+  position: relative;
+  overflow: hidden;
+  padding: 160px 0 100px;
+}
+.hero::before {
+  content: ''; position: absolute;
+  top: -50%; right: -30%;
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(0,136,255,0.12) 0%, transparent 60%);
+  border-radius: 50%;
+  animation: heroGlow1 8s ease-in-out infinite alternate;
+}
+.hero::after {
+  content: ''; position: absolute;
+  bottom: -40%; left: -20%;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(255,39,60,0.1) 0%, transparent 60%);
+  border-radius: 50%;
+  animation: heroGlow2 10s ease-in-out infinite alternate;
+}
+@keyframes heroGlow1 { from { transform: translate(0,0) scale(1); } to { transform: translate(-60px, 40px) scale(1.15); } }
+@keyframes heroGlow2 { from { transform: translate(0,0) scale(1); } to { transform: translate(40px, -30px) scale(1.1); } }
+
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, black, transparent);
+}
+
+.hero-content { position: relative; z-index: 2; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 20px;
+  background: rgba(0,136,255,0.1);
+  border: 1px solid rgba(0,136,255,0.2);
+  border-radius: 100px;
+  font-family: var(--font-display);
+  font-size: 0.8rem; font-weight: 600;
+  color: var(--c-blue);
+  margin-bottom: 32px;
+  animation: fadeUp 0.8s ease-out;
+}
+.hero-badge .dot {
+  width: 8px; height: 8px;
+  background: var(--c-green);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+.hero-title {
+  font-family: var(--font-body);
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.25;
+  margin-bottom: 28px;
+  letter-spacing: -0.02em;
+  animation: fadeUp 0.8s ease-out 0.1s both;
+}
+.hero-title .highlight {
+  position: relative;
+  display: inline;
+}
+.hero-title .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 4px; left: 0; right: 0;
+  height: 12px;
+  background: var(--gradient-main);
+  opacity: 0.25;
+  border-radius: 4px;
+  z-index: -1;
+}
+.hero-sub {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  color: var(--c-text-muted);
+  max-width: 560px;
+  line-height: 1.9;
+  margin-bottom: 40px;
+  animation: fadeUp 0.8s ease-out 0.2s both;
+}
+.hero-actions {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  margin-bottom: 48px;
+  animation: fadeUp 0.8s ease-out 0.3s both;
+}
+.hero-trust {
+  display: flex; gap: 32px; flex-wrap: wrap;
+  animation: fadeUp 0.8s ease-out 0.4s both;
+}
+.hero-trust-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.85rem; color: var(--c-text-muted);
+}
+.hero-trust-item .icon {
+  width: 40px; height: 40px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--c-dark-border);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+}
+.hero-trust-item strong { color: var(--c-white); font-weight: 700; }
+
+.hero-visual {
+  position: absolute;
+  right: -2%; top: 180px;
+  width: 45%; max-width: 600px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+.hero-visual .code-block {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.8rem;
+  color: var(--c-blue);
+  line-height: 2;
+  white-space: pre;
+  transform: rotate(-5deg);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================
+   Pain Points
+   ======================================== */
+.pain { background: var(--c-dark); }
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 56px;
+}
+.pain-card {
+  padding: 36px 28px;
+  background: var(--c-dark-card);
+  border: 1px solid var(--c-dark-border);
+  border-radius: var(--radius-lg);
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+.pain-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gradient-main);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.pain-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.12); }
+.pain-card:hover::before { opacity: 1; }
+.pain-icon {
+  width: 52px; height: 52px;
+  background: rgba(255,39,60,0.08);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+.pain-card h3 {
+  font-size: 1.05rem; font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.pain-card p {
+  font-size: 0.88rem;
+  color: var(--c-text-muted);
+  line-height: 1.7;
+}
+
+/* ========================================
+   Solution
+   ======================================== */
+.solution {
+  background: linear-gradient(180deg, var(--c-dark) 0%, #080814 100%);
+}
+.solution-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+.solution-card {
+  padding: 44px 32px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: var(--glass-blur);
+  text-align: center;
+  transition: all 0.4s;
+}
+.solution-card:hover { transform: translateY(-4px); border-color: rgba(0,136,255,0.2); }
+.solution-number {
+  font-family: var(--font-display);
+  font-size: 3rem; font-weight: 800;
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 16px;
+}
+.solution-card h3 {
+  font-size: 1.2rem; font-weight: 700;
+  margin-bottom: 12px;
+}
+.solution-card p {
+  font-size: 0.9rem;
+  color: var(--c-text-muted);
+  line-height: 1.8;
+}
+
+/* ========================================
+   Courses
+   ======================================== */
+.courses { background: #080814; }
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+.course-card {
+  padding: 40px 32px;
+  background: var(--c-dark-card);
+  border: 1px solid var(--c-dark-border);
+  border-radius: var(--radius-xl);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s;
+  display: flex; flex-direction: column;
+}
+.course-card:hover { border-color: rgba(255,255,255,0.12); transform: translateY(-4px); }
+.course-card.featured {
+  border-color: rgba(0,136,255,0.3);
+  box-shadow: var(--shadow-glow);
+}
+.course-card.featured::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--gradient-main);
+}
+.course-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(0,136,255,0.1);
+  border: 1px solid rgba(0,136,255,0.2);
+  border-radius: 100px;
+  font-size: 0.7rem; font-weight: 700;
+  font-family: var(--font-display);
+  color: var(--c-blue);
+  margin-bottom: 20px;
+  width: fit-content;
+}
+.course-card.featured .course-badge {
+  background: rgba(255,39,60,0.1);
+  border-color: rgba(255,39,60,0.3);
+  color: var(--c-red);
+}
+.course-name {
+  font-size: 1.35rem; font-weight: 900;
+  margin-bottom: 8px;
+}
+.course-desc {
+  font-size: 0.88rem;
+  color: var(--c-text-muted);
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+.course-price {
+  margin-bottom: 8px;
+}
+.course-price .original {
+  font-size: 0.9rem;
+  color: var(--c-text-muted);
+  text-decoration: line-through;
+}
+.course-price .actual {
+  font-family: var(--font-display);
+  font-size: 2.2rem; font-weight: 800;
+  color: var(--c-white);
+}
+.course-price .actual .yen { font-size: 1rem; font-weight: 600; }
+.course-price .period { font-size: 0.85rem; color: var(--c-text-muted); }
+.subsidy-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px;
+  background: rgba(24,165,88,0.1);
+  border: 1px solid rgba(24,165,88,0.2);
+  border-radius: 8px;
+  font-size: 0.75rem; font-weight: 600;
+  color: var(--c-green);
+  margin-bottom: 28px;
+}
+.course-features {
+  flex: 1;
+  margin-bottom: 28px;
+}
+.course-features li {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 8px 0;
+  font-size: 0.88rem;
+  color: var(--c-text-muted);
+}
+.course-features li .check {
+  color: var(--c-green);
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.course-cta {
+  width: 100%;
+  padding: 16px;
+  border-radius: 14px;
+  font-size: 0.95rem; font-weight: 700;
+  font-family: var(--font-display);
+  transition: all 0.3s;
+}
+.course-cta.primary {
+  background: var(--gradient-main);
+  color: white;
+  box-shadow: 0 4px 20px rgba(0,136,255,0.2);
+}
+.course-cta.primary:hover { box-shadow: 0 8px 32px rgba(0,136,255,0.35); transform: translateY(-2px); }
+.course-cta.secondary {
+  background: rgba(255,255,255,0.05);
+  color: var(--c-text);
+  border: 1px solid var(--c-dark-border);
+}
+.course-cta.secondary:hover { background: rgba(255,255,255,0.08); }
+.course-note {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 0.85rem;
+  color: var(--c-text-muted);
+}
+
+/* ========================================
+   Social Proof / Numbers
+   ======================================== */
+.proof { background: var(--c-dark); }
+.proof-numbers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 56px;
+  margin-bottom: 64px;
+}
+.proof-number {
+  text-align: center;
+  padding: 40px 24px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: var(--glass-blur);
+}
+.proof-number .value {
+  font-family: var(--font-display);
+  font-size: 3rem; font-weight: 800;
+}
+.proof-number .label {
+  font-size: 0.9rem;
+  color: var(--c-text-muted);
+  margin-top: 8px;
+}
+.proof-logos {
+  display: flex; align-items: center; justify-content: center;
+  gap: 48px; flex-wrap: wrap;
+  opacity: 0.4;
+}
+.proof-logos span {
+  font-family: var(--font-display);
+  font-size: 1.1rem; font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* ========================================
+   Enterprise / 受託開発
+   ======================================== */
+.enterprise { background: linear-gradient(180deg, var(--c-dark) 0%, #080814 100%); }
+.enterprise-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+.enterprise-card {
+  padding: 48px 40px;
+  background: var(--c-dark-card);
+  border: 1px solid var(--c-dark-border);
+  border-radius: var(--radius-xl);
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+.enterprise-card::after {
+  content: ''; position: absolute; top: 0; right: 0;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(0,136,255,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.enterprise-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.12); }
+.enterprise-icon {
+  width: 60px; height: 60px;
+  background: rgba(0,136,255,0.08);
+  border: 1px solid rgba(0,136,255,0.15);
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 24px;
+}
+.enterprise-card h3 {
+  font-size: 1.3rem; font-weight: 900;
+  margin-bottom: 12px;
+}
+.enterprise-card p {
+  font-size: 0.92rem;
+  color: var(--c-text-muted);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.enterprise-tags {
+  display: flex; gap: 8px; flex-wrap: wrap;
+}
+.enterprise-tags span {
+  padding: 6px 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--c-dark-border);
+  border-radius: 100px;
+  font-size: 0.78rem; font-weight: 500;
+  color: var(--c-text-muted);
+}
+
+/* ========================================
+   FAQ
+   ======================================== */
+.faq { background: #080814; }
+.faq-list {
+  max-width: 800px;
+  margin: 56px auto 0;
+}
+.faq-item {
+  border-bottom: 1px solid var(--c-dark-border);
+}
+.faq-question {
+  width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 0;
+  background: none;
+  color: var(--c-text);
+  font-size: 1rem; font-weight: 700;
+  text-align: left;
+  transition: color 0.3s;
+}
+.faq-question:hover { color: var(--c-white); }
+.faq-question .arrow {
+  font-size: 1.2rem;
+  color: var(--c-text-muted);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+.faq-item.active .faq-question .arrow { transform: rotate(180deg); }
+.faq-answer {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+.faq-item.active .faq-answer { max-height: 300px; }
+.faq-answer p {
+  padding-bottom: 24px;
+  font-size: 0.92rem;
+  color: var(--c-text-muted);
+  line-height: 1.9;
+}
+
+/* ========================================
+   Final CTA
+   ======================================== */
+.final-cta {
+  padding: 120px 0;
+  background: var(--gradient-hero);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.final-cta::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, rgba(0,136,255,0.1) 0%, transparent 60%);
+}
+.final-cta .container { position: relative; z-index: 2; }
+.final-cta .section-title { max-width: 700px; margin: 0 auto 20px; }
+.final-cta .section-subtitle { margin: 0 auto 40px; text-align: center; }
+.final-cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+/* ========================================
+   Footer
+   ======================================== */
+.footer {
+  background: #050508;
+  padding: 60px 0 32px;
+  border-top: 1px solid var(--c-dark-border);
+}
+.footer-inner {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  flex-wrap: wrap; gap: 40px;
+  margin-bottom: 48px;
+}
+.footer-brand .nav-logo { margin-bottom: 16px; }
+.footer-brand p { font-size: 0.85rem; color: var(--c-text-muted); max-width: 300px; line-height: 1.8; }
+.footer-links { display: flex; gap: 64px; }
+.footer-links-group h4 {
+  font-family: var(--font-display);
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--c-text-muted);
+  margin-bottom: 16px;
+}
+.footer-links-group a {
+  display: block; padding: 4px 0;
+  font-size: 0.88rem; color: var(--c-text-muted);
+  transition: color 0.3s;
+}
+.footer-links-group a:hover { color: var(--c-white); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 32px;
+  border-top: 1px solid var(--c-dark-border);
+  font-size: 0.8rem; color: var(--c-text-muted);
+}
+
+/* ========================================
+   Mobile Menu (default hidden)
+   ======================================== */
+.mobile-menu { display: none; }
+
+/* ========================================
+   Fixed CTA (Mobile)
+   ======================================== */
+.fixed-cta {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+  padding: 12px 16px;
+  background: rgba(10,10,15,0.92);
+  backdrop-filter: var(--glass-blur);
+  border-top: 1px solid var(--c-dark-border);
+  display: none;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+.fixed-cta.visible { transform: translateY(0); }
+.fixed-cta .btn-primary { width: 100%; justify-content: center; padding: 16px; font-size: 0.95rem; }
+
+/* ========================================
+   Scroll Animations
+   ======================================== */
+.reveal {
+  opacity: 0; transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ========================================
+   Responsive
+   ======================================== */
+@media (max-width: 1024px) {
+  .hero-visual { display: none; }
+  .course-grid { grid-template-columns: 1fr 1fr; }
+  .course-card:last-child { grid-column: 1 / -1; max-width: 500px; margin: 0 auto; }
+}
+@media (max-width: 768px) {
+  .section { padding: 80px 0; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .mobile-menu {
+    display: none; position: fixed; inset: 0; z-index: 1001;
+    background: rgba(10,10,15,0.97);
+    backdrop-filter: var(--glass-blur);
+    flex-direction: column;
+    align-items: center; justify-content: center; gap: 32px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-size: 1.2rem; font-weight: 600; color: var(--c-text);
+    font-family: var(--font-display);
+  }
+  .mobile-menu .close-btn {
+    position: absolute; top: 20px; right: 24px;
+    background: none; border: none;
+    color: var(--c-text); font-size: 1.5rem; cursor: pointer;
+  }
+  .pain-grid { grid-template-columns: 1fr 1fr; }
+  .solution-grid { grid-template-columns: 1fr; }
+  .course-grid { grid-template-columns: 1fr; }
+  .course-card:last-child { max-width: 100%; }
+  .proof-numbers { grid-template-columns: 1fr; gap: 16px; }
+  .enterprise-grid { grid-template-columns: 1fr; }
+  .hero-trust { flex-direction: column; gap: 16px; }
+  .footer-inner { flex-direction: column; }
+  .footer-links { flex-direction: column; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  .footer { padding-bottom: 80px; }
+  .fixed-cta { display: block; }
+}
+@media (max-width: 480px) {
+  .pain-grid { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn-primary, .hero-actions .btn-secondary { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== Navigation ========== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <span class="logo-mark">H</span>
+      ホリエモンAI学校
+    </a>
+    <div class="nav-links">
+      <a href="#courses">講座一覧</a>
+      <a href="#enterprise">受託開発</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="nav-cta">無料相談</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" id="closeMenu" aria-label="メニューを閉じる">&times;</button>
+  <a href="#courses" onclick="closeMobileMenu()">講座一覧</a>
+  <a href="#enterprise" onclick="closeMobileMenu()">受託開発</a>
+  <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+  <a href="#contact" class="btn-primary" onclick="closeMobileMenu()">無料相談</a>
+</div>
+
+<!-- ========== Hero ========== -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="container hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      リスキリング補助金 75%対応
+    </div>
+    <h1 class="hero-title">
+      <span class="highlight">日本語で話すだけ</span>で、<br>
+      アプリが作れる時代。
+    </h1>
+    <p class="hero-sub">
+      AIを味方につけて、あなたのアイデアを形にする。<br>
+      ホリエモンAI学校の実践型AI開発講座で、<br>
+      プログラミング未経験からアプリ開発者へ。
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">
+        無料相談を予約する
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#courses" class="btn-secondary">講座の詳細を見る</a>
+    </div>
+    <div class="hero-trust">
+      <div class="hero-trust-item">
+        <span class="icon">&#128176;</span>
+        <span>実質 <strong>9万円〜</strong></span>
+      </div>
+      <div class="hero-trust-item">
+        <span class="icon">&#128197;</span>
+        <span>最短 <strong>5日間</strong>で習得</span>
+      </div>
+      <div class="hero-trust-item">
+        <span class="icon">&#127891;</span>
+        <span><strong>未経験OK</strong></span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual" aria-hidden="true">
+    <div class="code-block">
+user: 「顧客管理アプリを作って」
+
+AI: 承知しました。
+    データベース設計中...
+    UIコンポーネント生成中...
+    API構築中...
+
+&#10003; アプリが完成しました。
+    </div>
+  </div>
+</section>
+
+<!-- ========== Pain Points ========== -->
+<section class="pain section" id="pain">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Problem</p>
+      <h2 class="section-title">こんな悩み、ありませんか？</h2>
+      <p class="section-subtitle">多くの方が同じ壁にぶつかっています。でも、もうその壁は存在しません。</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card reveal">
+        <div class="pain-icon">&#128561;</div>
+        <h3>プログラミングは<br>難しそう...</h3>
+        <p>英語のコードを何行も書くイメージがあり、自分には無理だと諦めていませんか？</p>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-icon">&#127468;&#127463;</div>
+        <h3>英語ができないと<br>無理では？</h3>
+        <p>プログラミング＝英語のイメージ。でもAI時代は日本語だけで開発できます。</p>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-icon">&#129302;</div>
+        <h3>AIって本当に<br>使えるの？</h3>
+        <p>話題のAI、でも実際の業務やアプリ開発にどう使えばいいかわからない。</p>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-icon">&#128176;</div>
+        <h3>高額な学費が<br>心配...</h3>
+        <p>スクール費用は高い。でもリスキリング補助金を使えば、最大75%OFFに。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Solution ========== -->
+<section class="solution section">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <p class="section-label">Solution</p>
+      <h2 class="section-title">AIが、プログラミングの<br>常識を変えた。</h2>
+      <p class="section-subtitle" style="margin:0 auto;">もう英語のコードを覚える必要はありません。日本語で指示するだけで、AIがコードを生成します。</p>
+    </div>
+    <div class="solution-grid">
+      <div class="solution-card reveal">
+        <div class="solution-number">01</div>
+        <h3>日本語で指示するだけ</h3>
+        <p>「こんなアプリを作って」と日本語で伝えるだけ。AIがコード・デザイン・データベースまで自動生成。</p>
+      </div>
+      <div class="solution-card reveal">
+        <div class="solution-number">02</div>
+        <h3>最短5日間で実践力</h3>
+        <p>座学ではなく、実際にアプリを作りながら学ぶ実践型。5日間で自分のアプリが完成します。</p>
+      </div>
+      <div class="solution-card reveal">
+        <div class="solution-number">03</div>
+        <h3>補助金で最大75%OFF</h3>
+        <p>リスキリング補助金対応で、36万円の講座が実質9万円から。学び直しを国がサポート。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Courses ========== -->
+<section class="courses section" id="courses">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <p class="section-label">Courses</p>
+      <h2 class="section-title">あなたに合ったコースを選ぶ</h2>
+      <p class="section-subtitle" style="margin:0 auto;">ステップアップ式の3コースで、体験から本格開発、そして自走までサポートします。</p>
+    </div>
+    <div class="course-grid">
+      <!-- Course 1: 体験 -->
+      <div class="course-card reveal">
+        <span class="course-badge">STARTER</span>
+        <h3 class="course-name">アプリ開発<br>体験コース</h3>
+        <p class="course-desc">Canvas・Buildを使って、AIでアプリを作る体験をする入門コース。プログラミング未経験でもOK。</p>
+        <div class="course-price">
+          <span class="original">&#165;360,000</span>
+          <div><span class="actual"><span class="yen">&#165;</span>90,000</span> <span class="period">/ 5日間</span></div>
+        </div>
+        <div class="subsidy-tag">&#127919; リスキリング補助金75%適用</div>
+        <ul class="course-features">
+          <li><span class="check">&#10003;</span>5日間・10時間の集中講座</li>
+          <li><span class="check">&#10003;</span>Canvas / Buildで開発体験</li>
+          <li><span class="check">&#10003;</span>プログラミング未経験OK</li>
+          <li><span class="check">&#10003;</span>オンライン受講可能</li>
+          <li><span class="check">&#10003;</span>リアル参加も可（実費別途）</li>
+        </ul>
+        <button class="course-cta secondary" onclick="scrollToContact()">詳細を相談する</button>
+      </div>
+      <!-- Course 2: 本気 -->
+      <div class="course-card featured reveal">
+        <span class="course-badge">RECOMMENDED</span>
+        <h3 class="course-name">アプリ開発<br>本気コース</h3>
+        <p class="course-desc">Claude Codeを使い、バックエンド・データベースを含む本格的なアプリ開発スキルを習得。</p>
+        <div class="course-price">
+          <span class="original">&#165;600,000</span>
+          <div><span class="actual"><span class="yen">&#165;</span>150,000</span> <span class="period">/ 5日間</span></div>
+        </div>
+        <div class="subsidy-tag">&#127919; リスキリング補助金75%適用</div>
+        <ul class="course-features">
+          <li><span class="check">&#10003;</span>5日間・10時間の集中講座</li>
+          <li><span class="check">&#10003;</span>Claude Codeでバックエンド開発</li>
+          <li><span class="check">&#10003;</span>データベース設計・構築</li>
+          <li><span class="check">&#10003;</span>実務レベルのアプリ完成</li>
+          <li><span class="check">&#10003;</span>リアル参加も可（実費別途）</li>
+        </ul>
+        <button class="course-cta primary" onclick="scrollToContact()">無料相談を予約する</button>
+      </div>
+      <!-- Course 3: 伴走 -->
+      <div class="course-card reveal">
+        <span class="course-badge">ADVANCED</span>
+        <h3 class="course-name">アプリ開発<br>長期伴走コース</h3>
+        <p class="course-desc">本気コース修了者向け。自分で開発を進めながら、プロのメンテナンス支援と最新技術を継続提供。</p>
+        <div class="course-price">
+          <div><span class="actual"><span class="yen">&#165;</span>80,000</span> <span class="period">/ 月額</span></div>
+        </div>
+        <div class="subsidy-tag" style="background:rgba(0,136,255,0.08);border-color:rgba(0,136,255,0.2);color:var(--c-blue);">&#128218; 本気コース修了者限定</div>
+        <ul class="course-features">
+          <li><span class="check">&#10003;</span>月額制の継続サポート</li>
+          <li><span class="check">&#10003;</span>自走開発 + プロの仕上げ</li>
+          <li><span class="check">&#10003;</span>メンテナンス・運用支援</li>
+          <li><span class="check">&#10003;</span>最新AI技術の継続提供</li>
+          <li><span class="check">&#10003;</span>必要に応じてリアル対応</li>
+        </ul>
+        <button class="course-cta secondary" onclick="scrollToContact()">詳細を相談する</button>
+      </div>
+    </div>
+    <p class="course-note reveal">&#8251; リアル（対面）参加の場合、ホテル代・移動費は別途実費となります。</p>
+  </div>
+</section>
+
+<!-- ========== Social Proof ========== -->
+<section class="proof section">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <p class="section-label">Results</p>
+      <h2 class="section-title">実績が証明する、学びの価値。</h2>
+    </div>
+    <div class="proof-numbers">
+      <div class="proof-number reveal">
+        <div class="value gradient-text">240+</div>
+        <div class="label">講義コンテンツ数</div>
+      </div>
+      <div class="proof-number reveal">
+        <div class="value gradient-text">95%</div>
+        <div class="label">受講者満足度</div>
+      </div>
+      <div class="proof-number reveal">
+        <div class="value gradient-text">50+</div>
+        <div class="label">アプリ開発実績</div>
+      </div>
+    </div>
+    <div class="proof-logos reveal">
+      <span>LIFEFUND</span>
+      <span>A.C.G</span>
+      <span>Fellows</span>
+      <span>RANNY's</span>
+      <span>TechBridge</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Enterprise ========== -->
+<section class="enterprise section" id="enterprise">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Enterprise</p>
+      <h2 class="section-title">受託開発サービス</h2>
+      <p class="section-subtitle">講座だけでなく、セキュリティ重視のAI開発や業務システムの受託開発も承ります。</p>
+    </div>
+    <div class="enterprise-grid">
+      <div class="enterprise-card reveal">
+        <div class="enterprise-icon">&#128274;</div>
+        <h3>セキュリティ対応<br>AI開発</h3>
+        <p>機密データを扱う企業向けに、Vertex AIやローカルAIを活用したセキュアなAIシステムを構築。データが外部に出ない安全な環境を実現します。</p>
+        <div class="enterprise-tags">
+          <span>Vertex AI</span>
+          <span>ローカルAI</span>
+          <span>オンプレミス対応</span>
+          <span>データセキュリティ</span>
+        </div>
+      </div>
+      <div class="enterprise-card reveal">
+        <div class="enterprise-icon">&#9881;&#65039;</div>
+        <h3>AI組み込み<br>システム開発</h3>
+        <p>業務フローにAIを組み込んだシステムを受託開発。送迎自動化アプリなど、お客様の課題に合わせたカスタムソリューションを提供します。</p>
+        <div class="enterprise-tags">
+          <span>送迎自動アプリ</span>
+          <span>業務自動化</span>
+          <span>カスタム開発</span>
+          <span>API連携</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section class="faq section" id="faq">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <p class="section-label">FAQ</p>
+      <h2 class="section-title">よくある質問</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          プログラミング未経験でも大丈夫ですか？
+          <span class="arrow">&#9660;</span>
+        </button>
+        <div class="faq-answer">
+          <p>はい、全く問題ありません。体験コースはプログラミング未経験の方を対象に設計されています。AIに日本語で指示を出すだけなので、コードを書く必要はありません。受講者の多くがプログラミング未経験から始めています。</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          リスキリング補助金とは何ですか？
+          <span class="arrow">&#9660;</span>
+        </button>
+        <div class="faq-answer">
+          <p>経済産業省が推進する「リスキリングを通じたキャリアアップ支援事業」の補助金です。対象講座の受講費用の最大75%（条件により異なる）が補助されます。体験コース36万円が実質9万円、本気コース60万円が実質15万円で受講可能です。詳細は無料相談にてご案内します。</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          オンラインと対面、どちらで受講できますか？
+          <span class="arrow">&#9660;</span>
+        </button>
+        <div class="faq-answer">
+          <p>基本はオンライン受講です。対面（リアル）での参加も可能ですが、その場合のホテル代・移動費は別途実費となります。オンラインでも対面と同じクオリティの講座を受けられます。</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          体験コースと本気コースの違いは？
+          <span class="arrow">&#9660;</span>
+        </button>
+        <div class="faq-answer">
+          <p>体験コースはCanvas・Buildを使った開発体験が中心で、AIでアプリを作る楽しさを体感していただきます。本気コースはClaude Codeを使い、バックエンド・データベースを含む本格的な開発スキルを習得。実務で使えるレベルのアプリを完成させます。</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          長期伴走コースはどのようなサポートですか？
+          <span class="arrow">&#9660;</span>
+        </button>
+        <div class="faq-answer">
+          <p>本気コース修了後、ご自身でアプリ開発を進めながら、プロによるメンテナンス支援・仕上げのサポート・最新AI技術の提供を月額8万円で継続的に受けられるコースです。開発の半分はご自身で、仕上げをプロが巻き取る形で効率的にアプリを完成させます。</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          受託開発の相談もできますか？
+          <span class="arrow">&#9660;</span>
+        </button>
+        <div class="faq-answer">
+          <p>はい、受託開発のご相談も承っております。セキュリティ重視のAI開発（Vertex AI・ローカルAI対応）や、業務システムへのAI組み込み開発など、お気軽にご相談ください。まずは無料相談にてお話をお伺いします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Final CTA ========== -->
+<section class="final-cta" id="contact">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">まずは無料相談から、<br>はじめてみませんか？</h2>
+      <p class="section-subtitle">
+        AIでアプリ開発ができる未来は、もう目の前です。<br>
+        あなたの「作りたい」を、一緒に形にしましょう。
+      </p>
+      <div class="final-cta-actions">
+        <a href="https://horiemon.ai/" class="btn-primary" target="_blank" rel="noopener">
+          無料相談を予約する
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://horiemon.ai/" class="btn-secondary" target="_blank" rel="noopener">
+          資料請求する
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Footer ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <span class="logo-mark">H</span>
+          ホリエモンAI学校
+        </div>
+        <p>AIを味方につけて、あなたのアイデアを形にする。日本語で話すだけでアプリが作れる、新しい学びの形。</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-links-group">
+          <h4>講座</h4>
+          <a href="#courses">体験コース</a>
+          <a href="#courses">本気コース</a>
+          <a href="#courses">長期伴走コース</a>
+        </div>
+        <div class="footer-links-group">
+          <h4>サービス</h4>
+          <a href="#enterprise">セキュリティ対応AI開発</a>
+          <a href="#enterprise">AI組み込みシステム開発</a>
+        </div>
+        <div class="footer-links-group">
+          <h4>サポート</h4>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">お問い合わせ</a>
+          <a href="https://horiemon.ai/" target="_blank" rel="noopener">ホリエモンAI学校</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 ホリエモンAI学校. All rights reserved.</span>
+      <span>AI開発講座</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== Fixed CTA (Mobile) ========== -->
+<div class="fixed-cta" id="fixedCta">
+  <a href="#contact" class="btn-primary">無料相談を予約する</a>
+</div>
+
+<!-- ========== JavaScript ========== -->
+<script>
+/* Navigation scroll effect */
+const nav = document.getElementById('nav');
+const fixedCta = document.getElementById('fixedCta');
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  nav.classList.toggle('scrolled', y > 60);
+  if (fixedCta) fixedCta.classList.toggle('visible', y > 400);
+}, { passive: true });
+
+/* Mobile menu */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const closeMenu = document.getElementById('closeMenu');
+
+hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
+function closeMobileMenu() { mobileMenu.classList.remove('open'); }
+
+/* FAQ accordion */
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const wasActive = item.classList.contains('active');
+  document.querySelectorAll('.faq-item.active').forEach(el => el.classList.remove('active'));
+  if (!wasActive) item.classList.add('active');
+}
+
+/* Scroll to contact */
+function scrollToContact() {
+  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+}
+
+/* Scroll reveal animation */
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+revealElements.forEach(el => revealObserver.observe(el));
+</script>
+
+</body>
+</html>

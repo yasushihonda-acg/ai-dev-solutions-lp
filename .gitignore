@@ -1,0 +1,5 @@
+.gh/
+.envrc
+*.png
+.DS_Store
+.playwright-mcp/
