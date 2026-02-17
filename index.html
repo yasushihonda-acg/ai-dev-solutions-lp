@@ -22,15 +22,15 @@
   --c-pink: #f14e66;
   --c-green: #18a558;
   --c-dark: #0a0a0f;
-  --c-dark-card: #111119;
-  --c-dark-border: rgba(255,255,255,0.08);
-  --c-text: #e8e8ed;
-  --c-text-muted: #8888a0;
+  --c-dark-card: #15151f;
+  --c-dark-border: rgba(255,255,255,0.10);
+  --c-text: #ededf0;
+  --c-text-muted: #a0a0b8;
   --c-white: #ffffff;
   --gradient-main: linear-gradient(135deg, var(--c-red), var(--c-blue));
   --gradient-hero: linear-gradient(160deg, #0a0a1a 0%, #0d1b2a 40%, #1a0a1e 70%, #0a0a1a 100%);
-  --glass-bg: rgba(255,255,255,0.03);
-  --glass-border: rgba(255,255,255,0.06);
+  --glass-bg: rgba(255,255,255,0.05);
+  --glass-border: rgba(255,255,255,0.09);
   --glass-blur: blur(20px);
   --radius-sm: 8px;
   --radius-md: 16px;
@@ -38,7 +38,7 @@
   --radius-xl: 32px;
   --font-display: 'Sora', sans-serif;
   --font-body: 'Zen Kaku Gothic New', sans-serif;
-  --shadow-glow: 0 0 60px rgba(0,136,255,0.15), 0 0 120px rgba(255,39,60,0.08);
+  --shadow-glow: 0 0 60px rgba(0,136,255,0.18), 0 0 120px rgba(255,39,60,0.1);
 }
 
 /* ========================================
@@ -50,9 +50,17 @@ body {
   font-family: var(--font-body);
   background: var(--c-dark);
   color: var(--c-text);
-  line-height: 1.7;
+  line-height: 1.75;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
 }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
@@ -69,6 +77,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 0 12px rgba(0,136,255,0.2));
 }
 .btn-primary {
   display: inline-flex; align-items: center; gap: 8px;
@@ -104,23 +113,25 @@ button { cursor: pointer; border: none; font-family: inherit; }
 .btn-secondary:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); }
 .section-label {
   font-family: var(--font-display);
-  font-size: 0.75rem; font-weight: 700;
-  letter-spacing: 0.15em; text-transform: uppercase;
+  font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--c-blue);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px rgba(0,136,255,0.3);
 }
 .section-title {
   font-family: var(--font-body);
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-size: clamp(2rem, 5vw, 3.2rem);
   font-weight: 900;
-  line-height: 1.3;
-  margin-bottom: 20px;
+  line-height: 1.25;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
 }
 .section-subtitle {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   color: var(--c-text-muted);
-  max-width: 600px;
-  line-height: 1.8;
+  max-width: 620px;
+  line-height: 1.85;
 }
 
 /* ========================================
@@ -155,7 +166,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
 }
 .nav-links { display: flex; gap: 32px; align-items: center; }
 .nav-links a {
-  font-size: 0.85rem; font-weight: 500;
+  font-size: 0.9rem; font-weight: 500;
   color: var(--c-text-muted);
   transition: color 0.3s;
   font-family: var(--font-display);
@@ -166,7 +177,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
   background: var(--gradient-main);
   color: white;
   border-radius: 100px;
-  font-size: 0.8rem; font-weight: 700;
+  font-size: 0.85rem; font-weight: 700;
   font-family: var(--font-display);
   transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -243,12 +254,13 @@ button { cursor: pointer; border: none; font-family: inherit; }
 
 .hero-title {
   font-family: var(--font-body);
-  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  font-size: clamp(2.6rem, 6vw, 4.5rem);
   font-weight: 900;
-  line-height: 1.25;
-  margin-bottom: 28px;
+  line-height: 1.2;
+  margin-bottom: 32px;
   letter-spacing: -0.02em;
   animation: fadeUp 0.8s ease-out 0.1s both;
+  text-shadow: 0 2px 40px rgba(0,0,0,0.5);
 }
 .hero-title .highlight {
   position: relative;
@@ -265,11 +277,11 @@ button { cursor: pointer; border: none; font-family: inherit; }
   z-index: -1;
 }
 .hero-sub {
-  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
   color: var(--c-text-muted);
-  max-width: 560px;
+  max-width: 580px;
   line-height: 1.9;
-  margin-bottom: 40px;
+  margin-bottom: 44px;
   animation: fadeUp 0.8s ease-out 0.2s both;
 }
 .hero-actions {
@@ -283,7 +295,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
 }
 .hero-trust-item {
   display: flex; align-items: center; gap: 10px;
-  font-size: 0.85rem; color: var(--c-text-muted);
+  font-size: 0.9rem; color: var(--c-text-muted);
 }
 .hero-trust-item .icon {
   width: 40px; height: 40px;
@@ -327,13 +339,14 @@ button { cursor: pointer; border: none; font-family: inherit; }
   margin-top: 56px;
 }
 .pain-card {
-  padding: 36px 28px;
+  padding: 40px 30px;
   background: var(--c-dark-card);
   border: 1px solid var(--c-dark-border);
   border-radius: var(--radius-lg);
   transition: all 0.4s;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
 }
 .pain-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0;
@@ -353,21 +366,32 @@ button { cursor: pointer; border: none; font-family: inherit; }
   margin-bottom: 20px;
 }
 .pain-card h3 {
-  font-size: 1.05rem; font-weight: 700;
-  margin-bottom: 10px;
+  font-size: 1.1rem; font-weight: 700;
+  margin-bottom: 12px;
   line-height: 1.5;
 }
 .pain-card p {
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   color: var(--c-text-muted);
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 /* ========================================
    Solution
    ======================================== */
 .solution {
-  background: linear-gradient(180deg, var(--c-dark) 0%, #080814 100%);
+  background: linear-gradient(180deg, var(--c-dark) 0%, #0c0c18 100%);
+  position: relative;
+}
+.solution::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(0,136,255,0.06) 0%, transparent 60%);
+  border-radius: 50%;
+  pointer-events: none;
 }
 .solution-grid {
   display: grid;
@@ -376,13 +400,14 @@ button { cursor: pointer; border: none; font-family: inherit; }
   margin-top: 56px;
 }
 .solution-card {
-  padding: 44px 32px;
+  padding: 48px 32px;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   backdrop-filter: var(--glass-blur);
   text-align: center;
   transition: all 0.4s;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
 }
 .solution-card:hover { transform: translateY(-4px); border-color: rgba(0,136,255,0.2); }
 .solution-number {
@@ -394,19 +419,29 @@ button { cursor: pointer; border: none; font-family: inherit; }
   margin-bottom: 16px;
 }
 .solution-card h3 {
-  font-size: 1.2rem; font-weight: 700;
-  margin-bottom: 12px;
+  font-size: 1.25rem; font-weight: 700;
+  margin-bottom: 14px;
 }
 .solution-card p {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--c-text-muted);
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
 /* ========================================
    Courses
    ======================================== */
-.courses { background: #080814; }
+.courses {
+  background: #0c0c18;
+  position: relative;
+}
+.courses::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+}
 .course-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -414,7 +449,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
   margin-top: 56px;
 }
 .course-card {
-  padding: 40px 32px;
+  padding: 44px 34px;
   background: var(--c-dark-card);
   border: 1px solid var(--c-dark-border);
   border-radius: var(--radius-xl);
@@ -422,6 +457,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
   overflow: hidden;
   transition: all 0.4s;
   display: flex; flex-direction: column;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
 }
 .course-card:hover { border-color: rgba(255,255,255,0.12); transform: translateY(-4px); }
 .course-card.featured {
@@ -451,14 +487,14 @@ button { cursor: pointer; border: none; font-family: inherit; }
   color: var(--c-red);
 }
 .course-name {
-  font-size: 1.35rem; font-weight: 900;
-  margin-bottom: 8px;
+  font-size: 1.4rem; font-weight: 900;
+  margin-bottom: 10px;
 }
 .course-desc {
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   color: var(--c-text-muted);
   margin-bottom: 28px;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 .course-price {
   margin-bottom: 8px;
@@ -492,7 +528,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
 .course-features li {
   display: flex; align-items: flex-start; gap: 10px;
   padding: 8px 0;
-  font-size: 0.88rem;
+  font-size: 0.93rem;
   color: var(--c-text-muted);
 }
 .course-features li .check {
@@ -524,14 +560,24 @@ button { cursor: pointer; border: none; font-family: inherit; }
 .course-note {
   text-align: center;
   margin-top: 32px;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--c-text-muted);
 }
 
 /* ========================================
    Social Proof / Numbers
    ======================================== */
-.proof { background: var(--c-dark); }
+.proof {
+  background: var(--c-dark);
+  position: relative;
+}
+.proof::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+}
 .proof-numbers {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -541,20 +587,22 @@ button { cursor: pointer; border: none; font-family: inherit; }
 }
 .proof-number {
   text-align: center;
-  padding: 40px 24px;
+  padding: 44px 28px;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   backdrop-filter: var(--glass-blur);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
 }
 .proof-number .value {
   font-family: var(--font-display);
-  font-size: 3rem; font-weight: 800;
+  font-size: 3.2rem; font-weight: 800;
+  filter: drop-shadow(0 0 20px rgba(0,136,255,0.15));
 }
 .proof-number .label {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--c-text-muted);
-  margin-top: 8px;
+  margin-top: 10px;
 }
 .proof-logos {
   display: flex; align-items: center; justify-content: center;
@@ -570,7 +618,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
 /* ========================================
    Enterprise / 受託開発
    ======================================== */
-.enterprise { background: linear-gradient(180deg, var(--c-dark) 0%, #080814 100%); }
+.enterprise { background: linear-gradient(180deg, var(--c-dark) 0%, #0c0c18 100%); }
 .enterprise-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -585,6 +633,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
   transition: all 0.4s;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
 }
 .enterprise-card::after {
   content: ''; position: absolute; top: 0; right: 0;
@@ -603,13 +652,13 @@ button { cursor: pointer; border: none; font-family: inherit; }
   margin-bottom: 24px;
 }
 .enterprise-card h3 {
-  font-size: 1.3rem; font-weight: 900;
-  margin-bottom: 12px;
+  font-size: 1.35rem; font-weight: 900;
+  margin-bottom: 14px;
 }
 .enterprise-card p {
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   color: var(--c-text-muted);
-  line-height: 1.8;
+  line-height: 1.85;
   margin-bottom: 24px;
 }
 .enterprise-tags {
@@ -620,14 +669,14 @@ button { cursor: pointer; border: none; font-family: inherit; }
   background: rgba(255,255,255,0.04);
   border: 1px solid var(--c-dark-border);
   border-radius: 100px;
-  font-size: 0.78rem; font-weight: 500;
+  font-size: 0.82rem; font-weight: 500;
   color: var(--c-text-muted);
 }
 
 /* ========================================
    FAQ
    ======================================== */
-.faq { background: #080814; }
+.faq { background: #0c0c18; }
 .faq-list {
   max-width: 800px;
   margin: 56px auto 0;
@@ -641,7 +690,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
   padding: 24px 0;
   background: none;
   color: var(--c-text);
-  font-size: 1rem; font-weight: 700;
+  font-size: 1.05rem; font-weight: 700;
   text-align: left;
   transition: color 0.3s;
 }
@@ -661,7 +710,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
 .faq-item.active .faq-answer { max-height: 300px; }
 .faq-answer p {
   padding-bottom: 24px;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   color: var(--c-text-muted);
   line-height: 1.9;
 }
@@ -699,7 +748,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
   margin-bottom: 48px;
 }
 .footer-brand .nav-logo { margin-bottom: 16px; }
-.footer-brand p { font-size: 0.85rem; color: var(--c-text-muted); max-width: 300px; line-height: 1.8; }
+.footer-brand p { font-size: 0.9rem; color: var(--c-text-muted); max-width: 300px; line-height: 1.8; }
 .footer-links { display: flex; gap: 64px; }
 .footer-links-group h4 {
   font-family: var(--font-display);
@@ -710,7 +759,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
 }
 .footer-links-group a {
   display: block; padding: 4px 0;
-  font-size: 0.88rem; color: var(--c-text-muted);
+  font-size: 0.9rem; color: var(--c-text-muted);
   transition: color 0.3s;
 }
 .footer-links-group a:hover { color: var(--c-white); }
@@ -718,7 +767,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
   display: flex; justify-content: space-between; align-items: center;
   padding-top: 32px;
   border-top: 1px solid var(--c-dark-border);
-  font-size: 0.8rem; color: var(--c-text-muted);
+  font-size: 0.85rem; color: var(--c-text-muted);
 }
 
 /* ========================================
