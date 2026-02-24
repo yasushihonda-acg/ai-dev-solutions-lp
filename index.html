@@ -378,6 +378,19 @@ button { cursor: pointer; border: none; font-family: inherit; }
   color: var(--c-text-muted);
   line-height: 1.75;
 }
+.pain-solution-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: var(--gradient-main);
+  color: white;
+  font-size: 0.85rem; font-weight: 700;
+  font-family: var(--font-display);
+  border-radius: 100px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 16px rgba(0,136,255,0.2);
+}
+.pain-solution-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,136,255,0.35); }
 
 /* ========================================
    Solution
@@ -568,11 +581,11 @@ button { cursor: pointer; border: none; font-family: inherit; }
 }
 .course-cta.primary:hover { box-shadow: 0 8px 32px rgba(0,136,255,0.35); transform: translateY(-2px); }
 .course-cta.secondary {
-  background: rgba(255,255,255,0.05);
-  color: var(--c-text);
-  border: 1px solid var(--c-dark-border);
+  background: var(--gradient-main);
+  color: white;
+  box-shadow: 0 4px 20px rgba(0,136,255,0.2);
 }
-.course-cta.secondary:hover { background: rgba(255,255,255,0.08); }
+.course-cta.secondary:hover { box-shadow: 0 8px 32px rgba(0,136,255,0.35); transform: translateY(-2px); }
 .course-note {
   text-align: center;
   margin-top: 32px;
@@ -910,28 +923,32 @@ AI: 承知しました。
         <div class="pain-icon">&#128161;</div>
         <h3>作りたいアプリが<br>あるけれど...</h3>
         <p>アイデアはある。でもプログラミング経験がなく、どこから始めればいいかわからない。外注すると高額で手が出ない。</p>
+        <a href="#solution" class="pain-solution-btn">解決策を見る ↓</a>
       </div>
       <div class="pain-card reveal">
         <div class="pain-icon">&#9889;</div>
         <h3>AIで業務を<br>効率化したい</h3>
         <p>AIが話題だけど、自分の仕事にどう使えばいいか具体的にわからない。使いこなせるか不安。</p>
+        <a href="#solution" class="pain-solution-btn">解決策を見る ↓</a>
       </div>
       <div class="pain-card reveal">
         <div class="pain-icon">&#128640;</div>
         <h3>AIは使っているが<br>もっと活用したい</h3>
         <p>ChatGPTは日常的に使っている。でも本格的なアプリ開発や業務自動化にはまだ踏み出せていない。</p>
+        <a href="#solution" class="pain-solution-btn">解決策を見る ↓</a>
       </div>
       <div class="pain-card reveal">
         <div class="pain-icon">&#128274;</div>
         <h3>AI活用したいが<br>セキュリティが心配</h3>
         <p>社内データをAIに渡して大丈夫？情報漏洩リスクが怖くて、AI導入に踏み切れない企業の方へ。</p>
+        <a href="#solution" class="pain-solution-btn">解決策を見る ↓</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ========== Solution ========== -->
-<section class="solution section">
+<section class="solution section" id="solution">
   <div class="container">
     <div class="reveal" style="text-align:center;">
       <p class="section-label">Solution</p>
