@@ -622,6 +622,20 @@ button { cursor: pointer; border: none; font-family: inherit; }
   margin-top: 3px;
 }
 
+/* ---- Detail Link ---- */
+.course-detail-link {
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+  margin-bottom: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--c-blue);
+  transition: color 0.3s;
+  font-family: var(--font-display);
+}
+.course-detail-link:hover { color: var(--c-white); }
+
 /* ---- CTA ---- */
 .course-cta {
   width: 100%;
@@ -1184,6 +1198,7 @@ AI: 承知しました。
           <li><span class="check">&#10003;</span>GCP / Vertex AI の概要理解</li>
         </ul>
         <p class="course-subsidy-note">1社員3回まで受講可能 | オンライン受講可</p>
+        <a href="courses/google-ai.html" class="course-detail-link">カリキュラム詳細を見る &rarr;</a>
         <button class="course-cta secondary" onclick="scrollToContact()">詳細を相談する</button>
       </div>
 
@@ -1205,6 +1220,7 @@ AI: 承知しました。
           <li><span class="check">&#10003;</span>GitHub連携・バージョン管理</li>
         </ul>
         <p class="course-subsidy-note">1社員3回まで受講可能 | オンライン受講可</p>
+        <a href="courses/claude-code.html" class="course-detail-link">カリキュラム詳細を見る &rarr;</a>
         <a href="https://4173jg.share-na2.hsforms.com/2pgu1PephQXysLrqHDoiPiw" class="course-cta primary" target="_blank" rel="noopener noreferrer">無料相談を予約する</a>
       </div>
 
@@ -1226,6 +1242,7 @@ AI: 承知しました。
           <li><span class="check">&#10003;</span>自社業務に合わせたカスタマイズ</li>
         </ul>
         <p class="course-subsidy-note">1社員3回まで受講可能 | オンライン受講可</p>
+        <a href="courses/business-automation.html" class="course-detail-link">カリキュラム詳細を見る &rarr;</a>
         <button class="course-cta secondary" onclick="scrollToContact()">詳細を相談する</button>
       </div>
     </div>
@@ -1409,9 +1426,9 @@ AI: 承知しました。
       <div class="footer-links">
         <div class="footer-links-group">
           <h4>研修コース</h4>
-          <a href="#courses">Googleアプリ開発</a>
-          <a href="#courses">Claude Code開発</a>
-          <a href="#courses">業務省人化</a>
+          <a href="courses/google-ai.html">Googleアプリ開発</a>
+          <a href="courses/claude-code.html">Claude Code開発</a>
+          <a href="courses/business-automation.html">業務省人化</a>
           <a href="#courses">伴走コース</a>
         </div>
         <div class="footer-links-group">
@@ -1482,16 +1499,19 @@ function scrollToContact() {
 
 /* Scroll reveal animation */
 const revealElements = document.querySelectorAll('.reveal');
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 80);
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-revealElements.forEach(el => revealObserver.observe(el));
+if ('IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealElements.forEach(el => revealObserver.observe(el));
+} else {
+  revealElements.forEach(el => el.classList.add('visible'));
+}
 </script>
 
 </body>
