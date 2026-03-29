@@ -846,7 +846,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
   max-height: 0; overflow: hidden;
   transition: max-height 0.4s ease, padding 0.4s ease;
 }
-.faq-item.active .faq-answer { max-height: 300px; }
+.faq-item.active .faq-answer { max-height: var(--faq-height, 300px); }
 .faq-answer p {
   padding-bottom: 24px;
   font-size: 0.95rem;
@@ -1464,8 +1464,15 @@ function closeMobileMenu() { mobileMenu.classList.remove('open'); }
 function toggleFaq(btn) {
   const item = btn.parentElement;
   const wasActive = item.classList.contains('active');
-  document.querySelectorAll('.faq-item.active').forEach(el => el.classList.remove('active'));
-  if (!wasActive) item.classList.add('active');
+  document.querySelectorAll('.faq-item.active').forEach(el => {
+    el.classList.remove('active');
+    el.querySelector('.faq-answer').style.removeProperty('--faq-height');
+  });
+  if (!wasActive) {
+    const answer = item.querySelector('.faq-answer');
+    answer.style.setProperty('--faq-height', answer.scrollHeight + 'px');
+    item.classList.add('active');
+  }
 }
 
 /* Scroll to contact */
