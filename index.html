@@ -478,13 +478,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
 }
-.course-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;   /* φ scale: 32px */
-  margin-top: 52px; /* φ scale: 52px */
-  align-items: start;
-}
+/* .course-grid base removed — use .course-grid--3col directly */
 
 /* ---- Card ---- */
 .course-card {
@@ -680,6 +674,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-top: 56px;
+  align-items: start;
 }
 
 /* ---- Wide card (伴走コース) ---- */
@@ -984,6 +979,8 @@ button { cursor: pointer; border: none; font-family: inherit; }
   .course-grid--3col { grid-template-columns: 1fr; gap: 20px; }
   .course-grid--3col .course-card:last-child { max-width: 100%; }
   .course-card { padding: 36px 28px; }
+  .course-wide-inner { padding: 36px 28px; }
+  .course-wide-pricing { max-width: 100%; }
   .course-name { font-size: 1.333rem; }
   .course-price .actual { font-size: 2rem; }
   .enterprise-grid { grid-template-columns: 1fr; }
@@ -1168,7 +1165,7 @@ AI: 承知しました。
     </div>
 
     <!-- 研修コース3つ -->
-    <div class="course-grid course-grid--3col">
+    <div class="course-grid--3col">
       <!-- Course 1: Googleでのアプリ開発 -->
       <div class="course-card reveal">
         <span class="course-badge">GOOGLE AI</span>
