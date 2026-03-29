@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Googleでのアプリ開発コース | AI開発講座</title>
+<meta name="description" content="Gemini CanvasとAI Studio Buildで、自然言語だけでアプリを作成。2時間×5回の集中研修。リスキリング補助金対応で自己負担9万円。">
+<meta property="og:title" content="Googleでのアプリ開発コース | AI開発講座">
+<meta property="og:description" content="Gemini CanvasとAI Studio Buildで、自然言語だけでアプリを作成。2時間×5回の集中研修。リスキリング補助金対応。">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ========================================
+   CSS Custom Properties
+   ======================================== */
+:root {
+  --c-red: #ff273c;
+  --c-blue: #0088ff;
+  --c-orange: #ef6c00;
+  --c-pink: #f14e66;
+  --c-green: #18a558;
+  --c-dark: #0a0a0f;
+  --c-dark-card: #15151f;
+  --c-dark-border: rgba(255,255,255,0.10);
+  --c-text: #ededf0;
+  --c-text-muted: #a0a0b8;
+  --c-white: #ffffff;
+  --gradient-main: linear-gradient(135deg, var(--c-red), var(--c-blue));
+  --gradient-hero: linear-gradient(160deg, #0a0a1a 0%, #0d1b2a 40%, #1a0a1e 70%, #0a0a1a 100%);
+  --glass-bg: rgba(255,255,255,0.05);
+  --glass-border: rgba(255,255,255,0.09);
+  --glass-blur: blur(20px);
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --font-display: 'Sora', sans-serif;
+  --font-body: 'Zen Kaku Gothic New', sans-serif;
+  --shadow-glow: 0 0 60px rgba(0,136,255,0.18), 0 0 120px rgba(255,39,60,0.1);
+  --c-accent: var(--c-blue);
+}
+
+/* ========================================
+   Reset & Base
+   ======================================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-body);
+  background: var(--c-dark);
+  color: var(--c-text);
+  line-height: 1.75;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; font-family: inherit; }
+
+/* ========================================
+   Utility
+   ======================================== */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 120px 0; position: relative; }
+.gradient-text {
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 12px rgba(0,136,255,0.2));
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 18px 40px;
+  background: var(--gradient-main);
+  color: var(--c-white);
+  font-family: var(--font-display);
+  font-size: 1rem; font-weight: 700;
+  border-radius: 100px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 24px rgba(255,39,60,0.3), 0 4px 24px rgba(0,136,255,0.2);
+  position: relative; overflow: hidden;
+}
+.btn-primary::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+  opacity: 0; transition: opacity 0.3s;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(255,39,60,0.4), 0 8px 40px rgba(0,136,255,0.3); }
+.btn-primary:hover::before { opacity: 1; }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 36px;
+  background: transparent;
+  color: var(--c-text);
+  font-family: var(--font-display);
+  font-size: 0.95rem; font-weight: 600;
+  border-radius: 100px;
+  border: 1px solid var(--c-dark-border);
+  backdrop-filter: var(--glass-blur);
+  transition: all 0.3s;
+}
+.btn-secondary:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); }
+.section-label {
+  font-family: var(--font-display);
+  font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px rgba(0,136,255,0.3);
+}
+.section-title {
+  font-family: var(--font-body);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.25;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--c-text-muted);
+  max-width: 620px;
+  line-height: 1.85;
+}
+
+/* ========================================
+   Navigation
+   ======================================== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 16px 0;
+  transition: all 0.4s;
+}
+.nav.scrolled {
+  background: rgba(10,10,15,0.85);
+  backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--c-dark-border);
+  padding: 10px 0;
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.1rem; font-weight: 800;
+  display: flex; align-items: center; gap: 10px;
+}
+.nav-logo .logo-mark {
+  width: 36px; height: 36px;
+  background: var(--gradient-main);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; color: white;
+}
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  font-size: 0.9rem; font-weight: 500;
+  color: var(--c-text-muted);
+  transition: color 0.3s;
+  font-family: var(--font-display);
+}
+.nav-links a:hover { color: var(--c-white); }
+.nav-cta {
+  padding: 10px 24px;
+  background: linear-gradient(135deg, rgba(160,18,40,0.35), rgba(0,90,181,0.35));
+  border: 1.5px solid rgba(255,255,255,0.25);
+  color: white;
+  border-radius: 100px;
+  font-size: 0.85rem; font-weight: 700;
+  font-family: var(--font-display);
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  backdrop-filter: blur(8px);
+}
+.nav-cta:hover { transform: translateY(-1px); background: var(--gradient-main); border-color: transparent; box-shadow: 0 4px 20px rgba(0,136,255,0.3); }
+.nav-hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.nav-hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--c-text); border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* ========================================
+   Course Hero
+   ======================================== */
+.course-hero {
+  padding: 140px 0 80px;
+  background: var(--gradient-hero);
+  position: relative;
+  overflow: hidden;
+}
+.course-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(0,136,255,0.12) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 30%, rgba(0,136,255,0.08) 0%, transparent 50%);
+}
+.course-hero .container { position: relative; z-index: 2; }
+.course-hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 16px;
+  background: rgba(0,136,255,0.15);
+  border: 1px solid rgba(0,136,255,0.3);
+  border-radius: 100px;
+  font-family: var(--font-display);
+  font-size: 0.8rem; font-weight: 700;
+  color: var(--c-accent);
+  margin-bottom: 24px;
+}
+.course-hero-title {
+  font-family: var(--font-body);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+.course-hero-sub {
+  font-size: 1.15rem;
+  color: var(--c-text-muted);
+  line-height: 1.85;
+  max-width: 640px;
+  margin-bottom: 36px;
+}
+.course-hero-meta {
+  display: flex; gap: 32px; flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.course-hero-meta-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.95rem;
+  color: var(--c-text-muted);
+}
+.course-hero-meta-item strong {
+  color: var(--c-white);
+  font-weight: 700;
+}
+.course-hero-price {
+  display: flex; align-items: baseline; gap: 16px;
+  margin-bottom: 12px;
+}
+.course-hero-price .original {
+  font-size: 1rem;
+  color: var(--c-text-muted);
+  text-decoration: line-through;
+}
+.course-hero-price .actual {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--c-white);
+}
+.course-hero-price .actual small {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--c-text-muted);
+}
+.course-hero-subsidy {
+  font-size: 0.85rem;
+  color: var(--c-accent);
+  margin-bottom: 36px;
+}
+.course-hero-actions {
+  display: flex; gap: 16px; flex-wrap: wrap;
+}
+
+/* ========================================
+   Target Section (こんな方におすすめ)
+   ======================================== */
+.target-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.target-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 36px 28px;
+  backdrop-filter: var(--glass-blur);
+  transition: transform 0.3s, border-color 0.3s;
+}
+.target-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0,136,255,0.25);
+}
+.target-card-icon {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+.target-card h3 {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+.target-card p {
+  font-size: 0.9rem;
+  color: var(--c-text-muted);
+  line-height: 1.75;
+}
+
+/* ========================================
+   Curriculum Timeline
+   ======================================== */
+.curriculum-timeline {
+  margin-top: 48px;
+  position: relative;
+}
+.curriculum-timeline::before {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--c-accent), rgba(0,136,255,0.1));
+}
+.curriculum-item {
+  position: relative;
+  padding-left: 76px;
+  margin-bottom: 32px;
+}
+.curriculum-item:last-child { margin-bottom: 0; }
+.curriculum-number {
+  position: absolute;
+  left: 8px;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  background: var(--c-dark);
+  border: 2px solid var(--c-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--c-accent);
+  z-index: 1;
+}
+.curriculum-item.active .curriculum-number {
+  background: var(--c-accent);
+  color: var(--c-white);
+}
+.curriculum-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  backdrop-filter: var(--glass-blur);
+  cursor: pointer;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.curriculum-card:hover {
+  border-color: rgba(0,136,255,0.25);
+  transform: translateX(4px);
+}
+.curriculum-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.curriculum-theme {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.curriculum-duration {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--c-accent);
+  white-space: nowrap;
+  margin-left: 16px;
+}
+.curriculum-arrow {
+  display: inline-block;
+  transition: transform 0.3s;
+  color: var(--c-text-muted);
+  font-size: 0.85rem;
+  margin-left: 12px;
+}
+.curriculum-item.active .curriculum-arrow {
+  transform: rotate(180deg);
+}
+.curriculum-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+.curriculum-item.active .curriculum-details {
+  max-height: var(--detail-height, 400px);
+}
+.curriculum-details-inner {
+  padding-top: 24px;
+  border-top: 1px solid var(--c-dark-border);
+  margin-top: 20px;
+}
+.curriculum-topics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 24px;
+}
+.curriculum-topic {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--c-text-muted);
+  line-height: 1.6;
+}
+.curriculum-topic .check {
+  color: var(--c-accent);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.curriculum-exercise {
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: rgba(0,136,255,0.08);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--c-accent);
+}
+.curriculum-exercise-label {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: 4px;
+}
+.curriculum-exercise p {
+  font-size: 0.9rem;
+  color: var(--c-text);
+  line-height: 1.6;
+}
+
+/* ========================================
+   Skills Section
+   ======================================== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.skill-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 32px 24px;
+  text-align: center;
+  backdrop-filter: var(--glass-blur);
+}
+.skill-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+.skill-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.skill-card p {
+  font-size: 0.85rem;
+  color: var(--c-text-muted);
+  line-height: 1.7;
+}
+
+/* ========================================
+   Course Overview (受講概要)
+   ======================================== */
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 48px;
+}
+.overview-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  backdrop-filter: var(--glass-blur);
+}
+.overview-card h3 {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: 16px;
+}
+.overview-card p,
+.overview-card li {
+  font-size: 0.95rem;
+  color: var(--c-text);
+  line-height: 1.8;
+}
+.overview-card ul {
+  padding-left: 0;
+}
+.overview-card li {
+  padding: 4px 0;
+  padding-left: 20px;
+  position: relative;
+}
+.overview-card li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--c-accent);
+  font-weight: 700;
+}
+.overview-price-highlight {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--c-white);
+  margin-bottom: 4px;
+}
+.overview-price-highlight small {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--c-text-muted);
+}
+
+/* ========================================
+   Final CTA
+   ======================================== */
+.final-cta {
+  text-align: center;
+  background: var(--gradient-hero);
+  position: relative;
+  overflow: hidden;
+}
+.final-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(0,136,255,0.1) 0%, transparent 60%);
+}
+.final-cta .container { position: relative; z-index: 2; }
+.final-cta .section-title { max-width: 700px; margin: 0 auto 20px; }
+.final-cta .section-subtitle { margin: 0 auto 40px; text-align: center; }
+.final-cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+/* ========================================
+   Footer
+   ======================================== */
+.footer {
+  background: #050508;
+  padding: 60px 0 32px;
+  border-top: 1px solid var(--c-dark-border);
+}
+.footer-inner {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  flex-wrap: wrap; gap: 40px;
+  margin-bottom: 48px;
+}
+.footer-brand .nav-logo { margin-bottom: 16px; }
+.footer-brand p { font-size: 0.9rem; color: var(--c-text-muted); max-width: 300px; line-height: 1.8; }
+.footer-links { display: flex; gap: 64px; }
+.footer-links-group h4 {
+  font-family: var(--font-display);
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--c-text-muted);
+  margin-bottom: 16px;
+}
+.footer-links-group a {
+  display: block; padding: 4px 0;
+  font-size: 0.9rem; color: var(--c-text-muted);
+  transition: color 0.3s;
+}
+.footer-links-group a:hover { color: var(--c-white); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 32px;
+  border-top: 1px solid var(--c-dark-border);
+  font-size: 0.85rem; color: var(--c-text-muted);
+}
+
+/* ========================================
+   Mobile Menu
+   ======================================== */
+.mobile-menu { display: none; }
+
+/* ========================================
+   Fixed CTA (Mobile)
+   ======================================== */
+.fixed-cta {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+  padding: 12px 16px;
+  background: rgba(10,10,15,0.92);
+  backdrop-filter: var(--glass-blur);
+  border-top: 1px solid var(--c-dark-border);
+  display: none;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+.fixed-cta.visible { transform: translateY(0); }
+.fixed-cta .btn-primary { width: 100%; justify-content: center; padding: 16px; font-size: 0.95rem; }
+
+/* ========================================
+   Scroll Animations
+   ======================================== */
+.reveal {
+  opacity: 0; transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ========================================
+   Responsive
+   ======================================== */
+@media (max-width: 1024px) {
+  .target-grid { grid-template-columns: 1fr 1fr; }
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+  .curriculum-topics { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .section { padding: 80px 0; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .mobile-menu {
+    display: none; position: fixed; inset: 0; z-index: 1001;
+    background: rgba(10,10,15,0.97);
+    backdrop-filter: var(--glass-blur);
+    flex-direction: column;
+    align-items: center; justify-content: center; gap: 32px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-size: 1.2rem; font-weight: 600; color: var(--c-text);
+    font-family: var(--font-display);
+  }
+  .mobile-menu .close-btn {
+    position: absolute; top: 20px; right: 24px;
+    background: none; border: none;
+    color: var(--c-text); font-size: 1.5rem; cursor: pointer;
+  }
+  .course-hero { padding: 120px 0 60px; }
+  .course-hero-title { font-size: clamp(1.8rem, 5vw, 2.5rem); }
+  .course-hero-meta { gap: 16px; }
+  .target-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .overview-grid { grid-template-columns: 1fr; }
+  .curriculum-timeline::before { left: 20px; }
+  .curriculum-item { padding-left: 60px; }
+  .curriculum-number { left: 0; width: 36px; height: 36px; font-size: 0.8rem; }
+  .curriculum-card { padding: 24px 20px; }
+  .curriculum-theme { font-size: 1.05rem; }
+  .footer-inner { flex-direction: column; }
+  .footer-links { flex-direction: column; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  .footer { padding-bottom: 80px; }
+  .fixed-cta { display: block; }
+}
+@media (max-width: 480px) {
+  .course-hero-actions { flex-direction: column; }
+  .course-hero-actions .btn-primary,
+  .course-hero-actions .btn-secondary { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== Navigation ========== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <span class="logo-mark">A</span>
+      AI開発講座
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#courses">研修コース</a>
+      <a href="../index.html#services">開発・保守</a>
+      <a href="../index.html#faq">FAQ</a>
+      <a href="../index.html#contact" class="nav-cta">無料相談</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" id="closeMenu" aria-label="メニューを閉じる">&times;</button>
+  <a href="../index.html#courses" onclick="closeMobileMenu()">研修コース</a>
+  <a href="../index.html#services" onclick="closeMobileMenu()">開発・保守</a>
+  <a href="../index.html#faq" onclick="closeMobileMenu()">FAQ</a>
+  <a href="../index.html#contact" class="btn-primary" onclick="closeMobileMenu()">無料相談</a>
+</div>
+
+<!-- ========== Course Hero ========== -->
+<section class="course-hero">
+  <div class="container">
+    <div class="course-hero-badge">GOOGLE AI</div>
+    <h1 class="course-hero-title">
+      Googleでの<br>アプリ開発コース
+    </h1>
+    <p class="course-hero-sub">
+      Gemini CanvasとAI Studio Buildで、自然言語だけでアプリを作成。<br>
+      プログラミング経験がなくても、AIに日本語で指示するだけで<br>
+      あなたのアイデアをWebアプリとして形にできます。
+    </p>
+    <div class="course-hero-meta">
+      <div class="course-hero-meta-item">
+        <span>📅</span>
+        <span><strong>2時間</strong> × 全5回</span>
+      </div>
+      <div class="course-hero-meta-item">
+        <span>💻</span>
+        <span><strong>オンライン</strong>受講可</span>
+      </div>
+      <div class="course-hero-meta-item">
+        <span>🎓</span>
+        <span><strong>補助金</strong>対応</span>
+      </div>
+    </div>
+    <div class="course-hero-price">
+      <span class="original">¥400,000</span>
+      <span class="actual">¥<span class="gradient-text">90,000</span><small> / 全5回</small></span>
+    </div>
+    <p class="course-hero-subsidy">🎓 リスキリング補助金適用時の自己負担額</p>
+    <div class="course-hero-actions">
+      <a href="https://4173jg.share-na2.hsforms.com/2pgu1PephQXysLrqHDoiPiw" class="btn-primary" target="_blank" rel="noopener noreferrer">
+        無料相談を予約する
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#curriculum" class="btn-secondary">カリキュラムを見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== こんな方におすすめ ========== -->
+<section class="section" id="target">
+  <div class="container">
+    <p class="section-label reveal">Recommended For</p>
+    <h2 class="section-title reveal">こんな方におすすめ</h2>
+    <div class="target-grid">
+      <div class="target-card reveal">
+        <div class="target-card-icon">💡</div>
+        <h3>アイデアはあるけど<br>作り方が分からない</h3>
+        <p>「こんなアプリがあれば便利なのに」と思ったことがある方。AIを使えば、プログラミングなしでアイデアを形にできます。</p>
+      </div>
+      <div class="target-card reveal">
+        <div class="target-card-icon">🔰</div>
+        <h3>プログラミングは<br>未経験</h3>
+        <p>コードを書いたことがなくても大丈夫。Gemini Canvasは日本語の指示だけでアプリを作れる、非エンジニア向けツールです。</p>
+      </div>
+      <div class="target-card reveal">
+        <div class="target-card-icon">🚀</div>
+        <h3>Google AIの最新機能を<br>体験したい</h3>
+        <p>Gemini Canvas、AI Studio Build、Vertex AIなど、Googleが提供する最新AIツールを実際に使いながら学べます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== カリキュラム ========== -->
+<section class="section" id="curriculum">
+  <div class="container">
+    <p class="section-label reveal">Curriculum</p>
+    <h2 class="section-title reveal">5回で身につく<br>カリキュラム</h2>
+    <p class="section-subtitle reveal">各回2時間の集中研修。毎回手を動かすハンズオン演習付き。</p>
+
+    <div class="curriculum-timeline">
+      <!-- 第1回 -->
+      <div class="curriculum-item reveal">
+        <div class="curriculum-number">01</div>
+        <div class="curriculum-card" onclick="toggleCurriculum(this)">
+          <div class="curriculum-header">
+            <div>
+              <span class="curriculum-theme">AIでアプリを作る第一歩</span>
+              <span class="curriculum-duration">2時間</span>
+            </div>
+            <span class="curriculum-arrow">▼</span>
+          </div>
+          <div class="curriculum-details">
+            <div class="curriculum-details-inner">
+              <div class="curriculum-topics">
+                <div class="curriculum-topic"><span class="check">✓</span> Gemini Canvasとは何か — 概要と特徴</div>
+                <div class="curriculum-topic"><span class="check">✓</span> Geminiへの指示の出し方（プロンプトの基本）</div>
+                <div class="curriculum-topic"><span class="check">✓</span> Canvas上でシンプルなWebアプリを作成</div>
+                <div class="curriculum-topic"><span class="check">✓</span> プレビューと共有の方法（g.co/gemini/share）</div>
+              </div>
+              <div class="curriculum-exercise">
+                <div class="curriculum-exercise-label">Hands-on</div>
+                <p>自己紹介ページをAIだけで作成し、共有リンクで公開する</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 第2回 -->
+      <div class="curriculum-item reveal">
+        <div class="curriculum-number">02</div>
+        <div class="curriculum-card" onclick="toggleCurriculum(this)">
+          <div class="curriculum-header">
+            <div>
+              <span class="curriculum-theme">AI Studio Buildモードで本格開発</span>
+              <span class="curriculum-duration">2時間</span>
+            </div>
+            <span class="curriculum-arrow">▼</span>
+          </div>
+          <div class="curriculum-details">
+            <div class="curriculum-details-inner">
+              <div class="curriculum-topics">
+                <div class="curriculum-topic"><span class="check">✓</span> Google AI Studio Buildモードの概要</div>
+                <div class="curriculum-topic"><span class="check">✓</span> 自然言語でフルスタックアプリを構築</div>
+                <div class="curriculum-topic"><span class="check">✓</span> Annotation Mode — UIを指さして修正指示</div>
+                <div class="curriculum-topic"><span class="check">✓</span> チャットで反復改善する方法</div>
+              </div>
+              <div class="curriculum-exercise">
+                <div class="curriculum-exercise-label">Hands-on</div>
+                <p>ToDoアプリをBuildモードで作成し、Annotation Modeでデザインを調整する</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 第3回 -->
+      <div class="curriculum-item reveal">
+        <div class="curriculum-number">03</div>
+        <div class="curriculum-card" onclick="toggleCurriculum(this)">
+          <div class="curriculum-header">
+            <div>
+              <span class="curriculum-theme">バージョン管理とドキュメント駆動開発</span>
+              <span class="curriculum-duration">2時間</span>
+            </div>
+            <span class="curriculum-arrow">▼</span>
+          </div>
+          <div class="curriculum-details">
+            <div class="curriculum-details-inner">
+              <div class="curriculum-topics">
+                <div class="curriculum-topic"><span class="check">✓</span> なぜバージョン管理が必要か</div>
+                <div class="curriculum-topic"><span class="check">✓</span> AI Studioでのバージョン履歴管理</div>
+                <div class="curriculum-topic"><span class="check">✓</span> ドキュメント駆動開発の考え方</div>
+                <div class="curriculum-topic"><span class="check">✓</span> Building Blocks（AI搭載コンポーネント）の活用</div>
+              </div>
+              <div class="curriculum-exercise">
+                <div class="curriculum-exercise-label">Hands-on</div>
+                <p>要件書を書いてからAIにアプリを作らせ、バージョン間の比較を体験する</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 第4回 -->
+      <div class="curriculum-item reveal">
+        <div class="curriculum-number">04</div>
+        <div class="curriculum-card" onclick="toggleCurriculum(this)">
+          <div class="curriculum-header">
+            <div>
+              <span class="curriculum-theme">アプリの公開と共有</span>
+              <span class="curriculum-duration">2時間</span>
+            </div>
+            <span class="curriculum-arrow">▼</span>
+          </div>
+          <div class="curriculum-details">
+            <div class="curriculum-details-inner">
+              <div class="curriculum-topics">
+                <div class="curriculum-topic"><span class="check">✓</span> Gemini Canvas作品の共有方法</div>
+                <div class="curriculum-topic"><span class="check">✓</span> Netlify Dropで無料デプロイ</div>
+                <div class="curriculum-topic"><span class="check">✓</span> AI StudioからCloud Runへのデプロイ概要</div>
+                <div class="curriculum-topic"><span class="check">✓</span> カスタムドメインの設定基礎</div>
+              </div>
+              <div class="curriculum-exercise">
+                <div class="curriculum-exercise-label">Hands-on</div>
+                <p>自分のアプリをNetlifyで公開し、URLを共有できるようにする</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 第5回 -->
+      <div class="curriculum-item reveal">
+        <div class="curriculum-number">05</div>
+        <div class="curriculum-card" onclick="toggleCurriculum(this)">
+          <div class="curriculum-header">
+            <div>
+              <span class="curriculum-theme">GCP/Vertex AIの世界を知る + 総まとめ</span>
+              <span class="curriculum-duration">2時間</span>
+            </div>
+            <span class="curriculum-arrow">▼</span>
+          </div>
+          <div class="curriculum-details">
+            <div class="curriculum-details-inner">
+              <div class="curriculum-topics">
+                <div class="curriculum-topic"><span class="check">✓</span> Google Cloudの全体像</div>
+                <div class="curriculum-topic"><span class="check">✓</span> Vertex AIとModel Garden（200+モデル）</div>
+                <div class="curriculum-topic"><span class="check">✓</span> Gemini APIの基本</div>
+                <div class="curriculum-topic"><span class="check">✓</span> Firestoreでのデータ永続化の概要</div>
+              </div>
+              <div class="curriculum-exercise">
+                <div class="curriculum-exercise-label">Hands-on</div>
+                <p>5回の総復習 — 修了制作を発表し、フィードバックを受ける</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 受講後に得られるスキル ========== -->
+<section class="section" id="skills">
+  <div class="container">
+    <p class="section-label reveal">Skills You'll Gain</p>
+    <h2 class="section-title reveal">受講後に得られるスキル</h2>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon">🎨</div>
+        <h3>AIアプリ作成力</h3>
+        <p>Gemini Canvasで自然言語からWebアプリを作成し、デザインを調整できるようになる</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">📝</div>
+        <h3>ドキュメント駆動開発</h3>
+        <p>要件を文書化してAIに渡す方法を習得し、再現性の高い開発ができるようになる</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🌐</div>
+        <h3>アプリ公開スキル</h3>
+        <p>作ったアプリをNetlifyやCloud Runで公開し、世界中からアクセスできる状態にできる</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🔧</div>
+        <h3>AI Studio活用力</h3>
+        <p>AI Studio Buildモードでのフルスタック開発とAnnotation Modeでの効率的な修正ができる</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">☁️</div>
+        <h3>GCP基礎知識</h3>
+        <p>Google Cloud、Vertex AI、Gemini APIの全体像を理解し、次のステップが見える</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🔄</div>
+        <h3>バージョン管理</h3>
+        <p>アプリの変更履歴を管理し、安全に開発を進めるためのスキルが身につく</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 受講概要 ========== -->
+<section class="section" id="overview">
+  <div class="container">
+    <p class="section-label reveal">Course Overview</p>
+    <h2 class="section-title reveal">受講概要</h2>
+    <div class="overview-grid">
+      <div class="overview-card reveal">
+        <h3>料金</h3>
+        <p class="overview-price-highlight">¥90,000<small> / 全5回</small></p>
+        <p style="color: var(--c-text-muted); font-size: 0.9rem; margin-bottom: 12px;">定価 ¥400,000 → リスキリング補助金適用</p>
+        <ul>
+          <li>1社員あたり3回まで受講可能</li>
+          <li>補助金の適用条件は無料相談にてご案内</li>
+        </ul>
+      </div>
+      <div class="overview-card reveal">
+        <h3>受講形式</h3>
+        <ul>
+          <li>2時間 × 全5回の集中研修</li>
+          <li>オンライン受講可能</li>
+          <li>対面参加も可（移動費・宿泊費別途）</li>
+          <li>各回ハンズオン演習付き</li>
+        </ul>
+      </div>
+      <div class="overview-card reveal">
+        <h3>必要な準備</h3>
+        <ul>
+          <li>Googleアカウント</li>
+          <li>PCとインターネット環境</li>
+          <li>プログラミング経験は不要</li>
+        </ul>
+      </div>
+      <div class="overview-card reveal">
+        <h3>サポート</h3>
+        <ul>
+          <li>研修中の質問対応</li>
+          <li>研修資料の提供</li>
+          <li>修了証の発行</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="section final-cta" id="contact">
+  <div class="container">
+    <p class="section-label reveal">Contact</p>
+    <h2 class="section-title reveal">まずは無料相談から、<br>はじめてみませんか？</h2>
+    <p class="section-subtitle reveal">
+      Googleでのアプリ開発コースについて、<br>
+      詳しい内容や補助金の適用条件をご案内します。
+    </p>
+    <div class="final-cta-actions reveal">
+      <a href="https://4173jg.share-na2.hsforms.com/2pgu1PephQXysLrqHDoiPiw" class="btn-primary" target="_blank" rel="noopener noreferrer">
+        無料相談を予約する
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Footer ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <span class="logo-mark">A</span>
+          AI開発講座
+        </div>
+        <p>AIを味方につけて、あなたの課題を解決する。研修・伴走・開発・保守のトータルサポート。</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-links-group">
+          <h4>研修コース</h4>
+          <a href="google-ai.html">Googleアプリ開発</a>
+          <a href="claude-code.html">Claude Code開発</a>
+          <a href="business-automation.html">業務省人化</a>
+          <a href="../index.html#courses">伴走コース</a>
+        </div>
+        <div class="footer-links-group">
+          <h4>サービス</h4>
+          <a href="../index.html#services">受託開発</a>
+          <a href="../index.html#services">保守・運用</a>
+        </div>
+        <div class="footer-links-group">
+          <h4>サポート</h4>
+          <a href="../index.html#faq">FAQ</a>
+          <a href="../index.html#contact">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 AI開発講座. All rights reserved.</span>
+      <span>AI開発講座</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== Fixed CTA (Mobile) ========== -->
+<div class="fixed-cta" id="fixedCta">
+  <a href="https://4173jg.share-na2.hsforms.com/2pgu1PephQXysLrqHDoiPiw" class="btn-primary" target="_blank" rel="noopener noreferrer">無料相談を予約する</a>
+</div>
+
+<!-- ========== JavaScript ========== -->
+<script>
+/* Navigation scroll effect */
+const nav = document.getElementById('nav');
+const fixedCta = document.getElementById('fixedCta');
+
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  nav.classList.toggle('scrolled', y > 60);
+  if (fixedCta) fixedCta.classList.toggle('visible', y > 400);
+}, { passive: true });
+
+/* Mobile menu */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const closeMenu = document.getElementById('closeMenu');
+
+hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
+function closeMobileMenu() { mobileMenu.classList.remove('open'); }
+
+/* Curriculum accordion */
+function toggleCurriculum(card) {
+  const item = card.closest('.curriculum-item');
+  const wasActive = item.classList.contains('active');
+  document.querySelectorAll('.curriculum-item.active').forEach(el => {
+    el.classList.remove('active');
+    el.querySelector('.curriculum-details').style.removeProperty('--detail-height');
+  });
+  if (!wasActive) {
+    const details = item.querySelector('.curriculum-details');
+    details.style.setProperty('--detail-height', details.scrollHeight + 'px');
+    item.classList.add('active');
+  }
+}
+
+/* Scroll reveal animation */
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+revealElements.forEach(el => revealObserver.observe(el));
+</script>
+
+</body>
+</html>
