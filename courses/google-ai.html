@@ -1115,6 +1115,7 @@ function toggleCurriculum(card) {
 
 /* Scroll reveal animation */
 const revealElements = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
@@ -1124,7 +1125,10 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-revealElements.forEach(el => revealObserver.observe(el));
+  revealElements.forEach(el => revealObserver.observe(el));
+} else {
+  revealElements.forEach(el => el.classList.add('visible'));
+}
 </script>
 
 </body>
