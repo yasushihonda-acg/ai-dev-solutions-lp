@@ -457,6 +457,23 @@ button { cursor: pointer; border: none; font-family: inherit; }
   line-height: 1.6;
 }
 
+.curriculum-note {
+  margin-top: 40px;
+  padding: 20px 24px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--c-dark-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  color: var(--c-text-muted);
+  line-height: 1.7;
+}
+.curriculum-note::before {
+  content: "※";
+  margin-right: 4px;
+  color: var(--c-accent);
+  font-weight: 700;
+}
+
 /* ========================================
    Skills Section
    ======================================== */
@@ -929,6 +946,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
         </div>
       </div>
     </div>
+    <p class="curriculum-note reveal">AI関連の技術・ツールは日々急速にアップデートされています。本カリキュラムの内容は最新の状況に応じて随時更新されるため、実際の研修内容は上記と異なる場合があります。最新のカリキュラムについては無料相談にてご案内いたします。</p>
   </div>
 </section>
 
