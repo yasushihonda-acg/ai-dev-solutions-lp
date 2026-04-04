@@ -513,47 +513,11 @@ button { cursor: pointer; border: none; font-family: inherit; }
   box-shadow: 0 4px 12px rgba(0,0,0,0.35), 0 20px 48px rgba(0,0,0,0.2);
 }
 
-/* ---- Featured (RECOMMENDED) ---- */
+/* ---- Featured (no special scale / emphasis) ---- */
 .course-card.featured {
-  background: #1e1e36;
-  border: none;
-  transform: scale(1.04);
-  transform-origin: center top;
   z-index: 2;
-  box-shadow:
-    0 4px 12px rgba(0,0,0,0.35),
-    0 16px 48px rgba(0,0,0,0.2),
-    0 0 0 1px rgba(0,136,255,0.15);
 }
-/* グラデーションボーダー (blue→red) */
-.course-card.featured::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  padding: 1.5px;
-  background: linear-gradient(
-    160deg,
-    rgba(0,136,255,0.6) 0%,
-    rgba(0,136,255,0.12) 30%,
-    rgba(255,255,255,0.06) 50%,
-    rgba(255,39,60,0.12) 70%,
-    rgba(255,39,60,0.55) 100%
-  );
-  border-radius: inherit;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  pointer-events: none;
-}
-.course-card.featured:hover {
-  transform: scale(1.04) translateY(-6px);
-  box-shadow:
-    0 8px 16px rgba(0,0,0,0.4),
-    0 28px 64px rgba(0,0,0,0.25),
-    0 0 0 1px rgba(0,136,255,0.2),
-    0 0 40px rgba(0,136,255,0.06);
-}
+.course-card.featured::before { display: none; }
 
 /* ---- Badge ---- */
 .course-badge {
@@ -569,11 +533,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
   border: 1px solid rgba(0,136,255,0.22);
   color: var(--c-blue);
 }
-.course-card.featured .course-badge {
-  background: rgba(255,39,60,0.10);
-  border-color: rgba(255,39,60,0.28);
-  color: var(--c-red);
-}
+/* featuredバッジも他カードと同じ青系に統一 */
 
 /* ---- Typography ---- */
 .course-name {
@@ -981,8 +941,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
   .course-grid--3col { grid-template-columns: 1fr 1fr; grid-template-rows: auto; gap: 24px; }
   .course-grid--3col > .course-card { grid-row: auto; display: flex; flex-direction: column; }
   .course-grid--3col .course-card:last-child { grid-column: 1 / -1; max-width: 480px; margin: 0 auto; }
-  .course-card.featured { transform: none; }
-  .course-card.featured:hover { transform: translateY(-6px); }
+  /* featured特別扱い解除済み — レスポンシブ上書き不要 */
   .course-wide-inner { flex-direction: column; gap: 32px; }
   .course-wide-pricing { width: 100%; max-width: 360px; }
   .enterprise-grid { grid-template-columns: 1fr 1fr; }
