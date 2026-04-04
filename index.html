@@ -125,7 +125,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
   font-size: clamp(2rem, 5vw, 3.2rem);
   font-weight: 900;
   line-height: 1.25;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
   letter-spacing: -0.01em;
 }
 .section-subtitle {
@@ -313,7 +313,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
   position: absolute;
   right: -2%; top: 180px;
   width: 45%; max-width: 600px;
-  opacity: 0.3;
+  opacity: 0.15;
   pointer-events: none;
 }
 .hero-visual .code-block {
@@ -334,6 +334,10 @@ button { cursor: pointer; border: none; font-family: inherit; }
    Pain Points
    ======================================== */
 .pain { background: var(--c-dark); }
+.pain .section-label,
+.pain .section-title,
+.pain .section-subtitle { text-align: center; }
+.pain .section-subtitle { margin-left: auto; margin-right: auto; }
 .pain-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -402,7 +406,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
    Solution
    ======================================== */
 .solution {
-  background: linear-gradient(180deg, var(--c-dark) 0%, #0c0c18 100%);
+  background: linear-gradient(180deg, #0e0e1c 0%, #111122 100%);
   position: relative;
 }
 .solution::before {
@@ -444,10 +448,8 @@ button { cursor: pointer; border: none; font-family: inherit; }
 .solution-card:hover { transform: translateY(-4px); border-color: rgba(0,136,255,0.2); }
 .solution-number {
   font-family: var(--font-display);
-  font-size: 3rem; font-weight: 800;
-  background: var(--gradient-main);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 2rem; font-weight: 800;
+  color: var(--c-blue);
   margin-bottom: 13px;
 }
 .solution-card h3 {
@@ -720,7 +722,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
 /* ========================================
    Enterprise / 受託開発
    ======================================== */
-.enterprise { background: linear-gradient(180deg, var(--c-dark) 0%, #0c0c18 100%); }
+.enterprise { background: linear-gradient(180deg, #0e0e1c 0%, #111122 100%); }
 .enterprise-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
