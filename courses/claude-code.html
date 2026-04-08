@@ -320,6 +320,91 @@ button { cursor: pointer; border: none; font-family: inherit; }
 /* ========================================
    Curriculum Timeline
    ======================================== */
+/* Pace Selector (受講ペース切替) */
+.pace-selector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 720px;
+  margin: 0 auto 20px;
+}
+.pace-tab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 20px 12px 16px;
+  background: var(--glass-bg);
+  border: 1.5px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  color: var(--c-text);
+  font-family: var(--font-body);
+  cursor: pointer;
+  backdrop-filter: var(--glass-blur);
+  transition: border-color 0.25s, transform 0.25s, background 0.25s, box-shadow 0.25s;
+  text-align: center;
+}
+.pace-tab:hover {
+  border-color: rgba(0,136,255,0.35);
+  transform: translateY(-2px);
+}
+.pace-tab.active {
+  border-color: var(--c-accent);
+  background: rgba(0,136,255,0.10);
+  box-shadow: 0 0 0 3px rgba(0,136,255,0.14);
+}
+.pace-tab:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+}
+.pace-tab .pace-main {
+  font-size: 1.05rem;
+  font-weight: 800;
+  font-family: var(--font-display);
+  color: var(--c-white);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pace-tab { transition: none; }
+  .pace-tab:hover { transform: none; }
+}
+.pace-tab .pace-sub {
+  font-size: 0.78rem;
+  color: var(--c-text-muted);
+}
+.pace-recommended {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--c-accent);
+  color: var(--c-white);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 3px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+.pace-detail {
+  max-width: 720px;
+  margin: 0 auto 36px;
+  padding: 16px 22px;
+  background: rgba(0,136,255,0.05);
+  border-left: 3px solid var(--c-accent);
+  border-radius: var(--radius-sm);
+}
+.pace-description {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--c-text);
+}
+.pace-description[hidden] { display: none; }
+
 .curriculum-timeline {
   margin-top: 48px;
   position: relative;
@@ -684,6 +769,12 @@ button { cursor: pointer; border: none; font-family: inherit; }
   .target-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; }
   .overview-grid { grid-template-columns: 1fr; }
+  .pace-selector { gap: 8px; }
+  .pace-tab { padding: 18px 6px 12px; }
+  .pace-tab .pace-main { font-size: 0.88rem; }
+  .pace-tab .pace-sub { font-size: 0.7rem; }
+  .pace-recommended { font-size: 0.6rem; padding: 2px 8px; top: -8px; }
+  .pace-detail { padding: 14px 16px; font-size: 0.9rem; }
   .curriculum-timeline::before { left: 20px; }
   .curriculum-item { padding-left: 60px; }
   .curriculum-number { left: 0; width: 36px; height: 36px; font-size: 0.8rem; }
@@ -803,7 +894,28 @@ button { cursor: pointer; border: none; font-family: inherit; }
   <div class="container">
     <p class="section-label reveal">Curriculum</p>
     <h2 class="section-title reveal">5モジュール・全12時間で<br>身につくカリキュラム</h2>
-    <p class="section-subtitle reveal">全12時間・5モジュール構成。受講ペースは <strong>2時間×6回</strong> / <strong>3時間×4回</strong> / <strong>4時間×3回</strong> から選べます（推奨：2時間×6回）。毎モジュール手を動かすハンズオン演習付き。</p>
+    <p class="section-subtitle reveal">全12時間・5モジュール構成。あなたに合った受講ペースを選べます。</p>
+
+    <div class="pace-selector reveal" role="radiogroup" aria-label="受講ペースを選択">
+      <button type="button" class="pace-tab active" role="radio" data-pace="2x6" aria-checked="true" tabindex="0" onclick="selectPace(this)">
+        <span class="pace-recommended">推奨</span>
+        <span class="pace-main">2時間 × 6回</span>
+        <span class="pace-sub">じっくりペース</span>
+      </button>
+      <button type="button" class="pace-tab" role="radio" data-pace="3x4" aria-checked="false" tabindex="-1" onclick="selectPace(this)">
+        <span class="pace-main">3時間 × 4回</span>
+        <span class="pace-sub">標準ペース</span>
+      </button>
+      <button type="button" class="pace-tab" role="radio" data-pace="4x3" aria-checked="false" tabindex="-1" onclick="selectPace(this)">
+        <span class="pace-main">4時間 × 3回</span>
+        <span class="pace-sub">短期集中</span>
+      </button>
+    </div>
+    <div class="pace-detail reveal" aria-live="polite">
+      <p class="pace-description" data-pace="2x6">1コマ2時間 × 全6回。1モジュールずつ無理なく進められる、欠席にも強い<strong>推奨配分</strong>です。毎モジュール手を動かすハンズオン演習付き。</p>
+      <p class="pace-description" data-pace="3x4">1コマ3時間 × 全4回。週1ペースで効率よく、約1ヶ月で習得できる標準配分です。毎モジュール手を動かすハンズオン演習付き。</p>
+      <p class="pace-description" data-pace="4x3">1コマ4時間 × 全3回。短期間で集中して身につけたい方向けの配分です。毎モジュール手を動かすハンズオン演習付き。</p>
+    </div>
 
     <div class="curriculum-timeline">
       <!-- 第1回 -->
@@ -1118,6 +1230,37 @@ const closeMenu = document.getElementById('closeMenu');
 hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
 closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
 function closeMobileMenu() { mobileMenu.classList.remove('open'); }
+
+/* Pace selector (radiogroup pattern) */
+function selectPace(btn) {
+  const pace = btn.dataset.pace;
+  document.querySelectorAll('.pace-tab').forEach(b => {
+    const isActive = b === btn;
+    b.classList.toggle('active', isActive);
+    b.setAttribute('aria-checked', isActive ? 'true' : 'false');
+    b.setAttribute('tabindex', isActive ? '0' : '-1');
+  });
+  document.querySelectorAll('.pace-description').forEach(p => {
+    p.hidden = p.dataset.pace !== pace;
+  });
+}
+/* Init: hide non-default descriptions (progressive enhancement — no-JS shows all 3) */
+document.querySelectorAll('.pace-description').forEach(p => {
+  if (p.dataset.pace !== '2x6') p.hidden = true;
+});
+/* Arrow key navigation for radiogroup */
+document.querySelectorAll('.pace-selector').forEach(group => {
+  group.addEventListener('keydown', (e) => {
+    if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key)) return;
+    e.preventDefault();
+    const tabs = Array.from(group.querySelectorAll('.pace-tab'));
+    const current = tabs.findIndex(t => t.classList.contains('active'));
+    const isPrev = e.key === 'ArrowLeft' || e.key === 'ArrowUp';
+    const next = (current + (isPrev ? -1 : 1) + tabs.length) % tabs.length;
+    selectPace(tabs[next]);
+    tabs[next].focus();
+  });
+});
 
 /* Curriculum accordion */
 function toggleCurriculum(card) {
