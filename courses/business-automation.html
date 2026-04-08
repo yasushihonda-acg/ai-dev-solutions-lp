@@ -405,6 +405,73 @@ button { cursor: pointer; border: none; font-family: inherit; }
 }
 .pace-description[hidden] { display: none; }
 
+/* Session Schedule (配分別セッション一覧) */
+.schedule-section {
+  max-width: 760px;
+  margin: 0 auto 56px;
+}
+.schedule-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--c-accent);
+  text-align: center;
+  margin: 0 0 18px;
+  letter-spacing: 0.04em;
+}
+.schedule-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.schedule-timeline[hidden] { display: none; }
+.schedule-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 22px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  backdrop-filter: var(--glass-blur);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.schedule-card:hover {
+  border-color: rgba(0,136,255,0.30);
+  transform: translateX(3px);
+}
+.schedule-num {
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--c-accent);
+  border-radius: 50%;
+  color: var(--c-accent);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+.schedule-time {
+  flex: 0 0 auto;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--c-accent);
+  background: rgba(0,136,255,0.10);
+  padding: 4px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.schedule-content {
+  flex: 1 1 auto;
+  font-size: 0.98rem;
+  color: var(--c-text);
+  line-height: 1.45;
+}
+
 .curriculum-timeline {
   margin-top: 48px;
   position: relative;
@@ -775,6 +842,11 @@ button { cursor: pointer; border: none; font-family: inherit; }
   .pace-tab .pace-sub { font-size: 0.7rem; }
   .pace-recommended { font-size: 0.6rem; padding: 2px 8px; top: -8px; }
   .pace-detail { padding: 14px 16px; font-size: 0.9rem; }
+  .schedule-section { margin-bottom: 40px; }
+  .schedule-card { padding: 14px 16px; gap: 12px; }
+  .schedule-num { width: 32px; height: 32px; font-size: 0.78rem; }
+  .schedule-time { font-size: 0.75rem; padding: 3px 10px; }
+  .schedule-content { font-size: 0.88rem; }
   .curriculum-timeline::before { left: 20px; }
   .curriculum-item { padding-left: 60px; }
   .curriculum-number { left: 0; width: 36px; height: 36px; font-size: 0.8rem; }
@@ -915,6 +987,29 @@ button { cursor: pointer; border: none; font-family: inherit; }
       <p class="pace-description" data-pace="2x6">1コマ2時間 × 全6回。1モジュールずつ無理なく進められる、欠席にも強い<strong>推奨配分</strong>です。毎モジュール手を動かすハンズオン演習付き。</p>
       <p class="pace-description" data-pace="3x4">1コマ3時間 × 全4回。週1ペースで効率よく、約1ヶ月で習得できる標準配分です。毎モジュール手を動かすハンズオン演習付き。</p>
       <p class="pace-description" data-pace="4x3">1コマ4時間 × 全3回。短期間で集中して身につけたい方向けの配分です。毎モジュール手を動かすハンズオン演習付き。</p>
+    </div>
+
+    <div class="schedule-section reveal" aria-live="polite">
+      <h3 class="schedule-title">セッションスケジュール</h3>
+      <div class="schedule-timeline" data-pace-schedule="2x6">
+        <div class="schedule-card"><span class="schedule-num">01</span><span class="schedule-time">2時間</span><span class="schedule-content">Claude Desktopとの初対面</span></div>
+        <div class="schedule-card"><span class="schedule-num">02</span><span class="schedule-time">2時間</span><span class="schedule-content">コネクタで業務ツールとつなげる</span></div>
+        <div class="schedule-card"><span class="schedule-num">03</span><span class="schedule-time">2時間</span><span class="schedule-content">プラグインで専門AIに変える</span></div>
+        <div class="schedule-card"><span class="schedule-num">04</span><span class="schedule-time">2時間</span><span class="schedule-content">スキルとProjectsで「自分専用AI」を作る</span></div>
+        <div class="schedule-card"><span class="schedule-num">05</span><span class="schedule-time">2時間</span><span class="schedule-content">実践ワークフロー + 次のステップ</span></div>
+        <div class="schedule-card"><span class="schedule-num">06</span><span class="schedule-time">2時間</span><span class="schedule-content">演習・Q&amp;A・自分の業務への応用</span></div>
+      </div>
+      <div class="schedule-timeline" data-pace-schedule="3x4" hidden>
+        <div class="schedule-card"><span class="schedule-num">01</span><span class="schedule-time">3時間</span><span class="schedule-content">Claude Desktop入門とコネクタ活用</span></div>
+        <div class="schedule-card"><span class="schedule-num">02</span><span class="schedule-time">3時間</span><span class="schedule-content">プラグインで専門AI化</span></div>
+        <div class="schedule-card"><span class="schedule-num">03</span><span class="schedule-time">3時間</span><span class="schedule-content">スキル・Projectsで自分専用AI構築</span></div>
+        <div class="schedule-card"><span class="schedule-num">04</span><span class="schedule-time">3時間</span><span class="schedule-content">実践ワークフロー・次のステップ</span></div>
+      </div>
+      <div class="schedule-timeline" data-pace-schedule="4x3" hidden>
+        <div class="schedule-card"><span class="schedule-num">01</span><span class="schedule-time">4時間</span><span class="schedule-content">Claude Desktop入門 + コネクタ活用</span></div>
+        <div class="schedule-card"><span class="schedule-num">02</span><span class="schedule-time">4時間</span><span class="schedule-content">プラグイン + スキル・Projects</span></div>
+        <div class="schedule-card"><span class="schedule-num">03</span><span class="schedule-time">4時間</span><span class="schedule-content">実践ワークフロー・次のステップ</span></div>
+      </div>
     </div>
 
     <div class="curriculum-timeline">
@@ -1243,10 +1338,16 @@ function selectPace(btn) {
   document.querySelectorAll('.pace-description').forEach(p => {
     p.hidden = p.dataset.pace !== pace;
   });
+  document.querySelectorAll('.schedule-timeline').forEach(t => {
+    t.hidden = t.dataset.paceSchedule !== pace;
+  });
 }
-/* Init: hide non-default descriptions (progressive enhancement — no-JS shows all 3) */
+/* Init: hide non-default descriptions and schedules (progressive enhancement — no-JS shows all) */
 document.querySelectorAll('.pace-description').forEach(p => {
   if (p.dataset.pace !== '2x6') p.hidden = true;
+});
+document.querySelectorAll('.schedule-timeline').forEach(t => {
+  if (t.dataset.paceSchedule !== '2x6') t.hidden = true;
 });
 /* Arrow key navigation for radiogroup */
 document.querySelectorAll('.pace-selector').forEach(group => {
