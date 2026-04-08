@@ -1,0 +1,14 @@
+{
+  "name": "ai-dev-solutions-lp",
+  "private": true,
+  "version": "0.0.0",
+  "description": "AI開発講座 LP (static site) + A4 flyer PDF build",
+  "scripts": {
+    "flyer:pdf": "node scripts/build-flyer-pdf.mjs",
+    "flyer:qr": "qrcode \"https://ai-dev-solutions-lp.vercel.app/\" -t svg -o assets/qr-lp.svg -m 1 -w 4"
+  },
+  "devDependencies": {
+    "playwright": "1.48.2",
+    "qrcode": "1.5.4"
+  }
+}
