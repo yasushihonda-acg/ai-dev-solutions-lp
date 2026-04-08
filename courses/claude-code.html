@@ -991,25 +991,352 @@ button { cursor: pointer; border: none; font-family: inherit; }
 
     <div class="schedule-section reveal" aria-live="polite">
       <h3 class="schedule-title">セッションスケジュール</h3>
+      
       <div class="schedule-timeline" data-pace-schedule="2x6">
-        <div class="schedule-card"><span class="schedule-num">01</span><span class="schedule-time">2時間</span><span class="schedule-content">環境構築 — 開発に必要なツールを全て揃える</span></div>
-        <div class="schedule-card"><span class="schedule-num">02</span><span class="schedule-time">2時間</span><span class="schedule-content">最初のアプリを作る — 作って公開する感動</span></div>
-        <div class="schedule-card"><span class="schedule-num">03</span><span class="schedule-time">2時間</span><span class="schedule-content">間違わない作り方 — コンテキストエンジニアリング</span></div>
-        <div class="schedule-card"><span class="schedule-num">04</span><span class="schedule-time">2時間</span><span class="schedule-content">データ保存と認証 — セキュリティの重要性</span></div>
-        <div class="schedule-card"><span class="schedule-num">05</span><span class="schedule-time">2時間</span><span class="schedule-content">実践開発 + 修了制作</span></div>
-        <div class="schedule-card"><span class="schedule-num">06</span><span class="schedule-time">2時間</span><span class="schedule-content">演習・Q&amp;A・修了制作ブラッシュアップ</span></div>
+      <div class="curriculum-item reveal">
+        <div class="curriculum-number">01</div>
+        <div class="curriculum-card" onclick="toggleCurriculum(this)">
+          <div class="curriculum-header">
+            <div>
+              <span class="curriculum-theme">環境構築 — 開発に必要なツールを全て揃える</span>
+              <span class="curriculum-duration">2時間</span>
+            </div>
+            <span class="curriculum-arrow">▼</span>
+          </div>
+          <div class="curriculum-details">
+            <div class="curriculum-details-inner">
+              <div class="curriculum-topics">
+                <div class="curriculum-topic"><span class="check">✓</span> Claude Codeとは — AI自律実行エージェントの概要</div>
+                <div class="curriculum-topic"><span class="check">✓</span> Anthropicアカウント登録・プラン契約・料金と制限の理解</div>
+                <div class="curriculum-topic"><span class="check">✓</span> VS Code導入 + Claude Codeインストール（OS別の手順）</div>
+                <div class="curriculum-topic"><span class="check">✓</span> Claude Codeでgcloud CLI・gh CLIを導入し、承認操作を体験</div>
+              </div>
+              <div class="curriculum-exercise">
+                <div class="curriculum-exercise-label">Hands-on</div>
+                <p>Claude Codeを起動し、自然言語の指示でGCP・GitHubのCLIツールを導入する（承認操作の初体験）</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="curriculum-item reveal">
+        <div class="curriculum-number">02</div>
+        <div class="curriculum-card" onclick="toggleCurriculum(this)">
+          <div class="curriculum-header">
+            <div>
+              <span class="curriculum-theme">最初のアプリを作る — 作って公開する感動</span>
+              <span class="curriculum-duration">2時間</span>
+            </div>
+            <span class="curriculum-arrow">▼</span>
+          </div>
+          <div class="curriculum-details">
+            <div class="curriculum-details-inner">
+              <div class="curriculum-topics">
+                <div class="curriculum-topic"><span class="check">✓</span> 自然言語でアプリを作らせる — プロンプトの基本</div>
+                <div class="curriculum-topic"><span class="check">✓</span> Frontend Designプラグインで見た目を本格的に仕上げる</div>
+                <div class="curriculum-topic"><span class="check">✓</span> Firebase Hostingでアプリを世界に公開する</div>
+                <div class="curriculum-topic"><span class="check">✓</span> GitHubにコードをプッシュして管理する</div>
+              </div>
+              <div class="curriculum-exercise">
+                <div class="curriculum-exercise-label">Hands-on</div>
+                <p>Claude Code + Frontend Designでアプリを作り、Firebase公開・GitHubプッシュまでを体験する</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="curriculum-item reveal">
+        <div class="curriculum-number">03</div>
+        <div class="curriculum-card" onclick="toggleCurriculum(this)">
+          <div class="curriculum-header">
+            <div>
+              <span class="curriculum-theme">間違わない作り方 — コンテキストエンジニアリング</span>
+              <span class="curriculum-duration">2時間</span>
+            </div>
+            <span class="curriculum-arrow">▼</span>
+          </div>
+          <div class="curriculum-details">
+            <div class="curriculum-details-inner">
+              <div class="curriculum-topics">
+                <div class="curriculum-topic"><span class="check">✓</span> なぜ「なんとなく指示」だと失敗するのか</div>
+                <div class="curriculum-topic"><span class="check">✓</span> コンテキストエンジニアリング — AIに正しい情報を渡す技術</div>
+                <div class="curriculum-topic"><span class="check">✓</span> Feature Devプラグインで探索→設計→実装の流れを体験</div>
+                <div class="curriculum-topic"><span class="check">✓</span> PRD / CLAUDE.md — AIへの指示と制約を文書で管理する</div>
+              </div>
+              <div class="curriculum-exercise">
+                <div class="curriculum-exercise-label">Hands-on</div>
+                <p>Feature Devでアプリを設計し直し、第2回の「なんとなく指示」との品質差を体験する</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="curriculum-item reveal">
+        <div class="curriculum-number">04</div>
+        <div class="curriculum-card" onclick="toggleCurriculum(this)">
+          <div class="curriculum-header">
+            <div>
+              <span class="curriculum-theme">データ保存と認証 — セキュリティの重要性</span>
+              <span class="curriculum-duration">2時間</span>
+            </div>
+            <span class="curriculum-arrow">▼</span>
+          </div>
+          <div class="curriculum-details">
+            <div class="curriculum-details-inner">
+              <div class="curriculum-topics">
+                <div class="curriculum-topic"><span class="check">✓</span> Firestoreでデータ保存 + Authenticationでログイン機能</div>
+                <div class="curriculum-topic"><span class="check">✓</span> AI駆動開発におけるセキュリティの重要性</div>
+                <div class="curriculum-topic"><span class="check">✓</span> プラグインの仕組み — hooks / skills / MCPで構成されている</div>
+                <div class="curriculum-topic"><span class="check">✓</span> AIと対話しながらプラグインをカスタマイズする方法</div>
+              </div>
+              <div class="curriculum-exercise">
+                <div class="curriculum-exercise-label">Hands-on</div>
+                <p>アプリにデータ保存とログイン機能を追加し、認証なしではアクセスできないことを確認する</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="curriculum-item reveal">
+        <div class="curriculum-number">05</div>
+        <div class="curriculum-card" onclick="toggleCurriculum(this)">
+          <div class="curriculum-header">
+            <div>
+              <span class="curriculum-theme">実践開発 + 修了制作</span>
+              <span class="curriculum-duration">2時間</span>
+            </div>
+            <span class="curriculum-arrow">▼</span>
+          </div>
+          <div class="curriculum-details">
+            <div class="curriculum-details-inner">
+              <div class="curriculum-topics">
+                <div class="curriculum-topic"><span class="check">✓</span> 自分の業務課題をアプリ化する実践</div>
+                <div class="curriculum-topic"><span class="check">✓</span> PRD作成 → 開発 → デプロイ → GitHub管理の一連の流れ</div>
+                <div class="curriculum-topic"><span class="check">✓</span> Claude Codeでできること・できないことの整理</div>
+                <div class="curriculum-topic"><span class="check">✓</span> 修了制作の発表とフィードバック</div>
+              </div>
+              <div class="curriculum-exercise">
+                <div class="curriculum-exercise-label">Hands-on</div>
+                <p>自分の業務課題をアプリ化した修了制作を発表し、「次に何をすべきか」を明確にする</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="curriculum-item reveal">
+        <div class="curriculum-number">06</div>
+        <div class="curriculum-card" onclick="toggleCurriculum(this)">
+          <div class="curriculum-header">
+            <div>
+              <span class="curriculum-theme">演習・Q&amp;A・修了制作ブラッシュアップ</span>
+              <span class="curriculum-duration">2時間</span>
+            </div>
+            <span class="curriculum-arrow">▼</span>
+          </div>
+          <div class="curriculum-details">
+            <div class="curriculum-details-inner">
+              <div class="curriculum-topics">
+                <div class="curriculum-topic"><span class="check">✓</span> 全モジュールを振り返るQ&amp;Aセッション</div>
+                <div class="curriculum-topic"><span class="check">✓</span> 詰まったポイントを講師と一緒に解消</div>
+                <div class="curriculum-topic"><span class="check">✓</span> 修了制作のブラッシュアップ</div>
+                <div class="curriculum-topic"><span class="check">✓</span> 次のステップへの行動計画</div>
+              </div>
+              <div class="curriculum-exercise">
+                <div class="curriculum-exercise-label">Hands-on</div>
+                <p>自分の修了制作を仕上げ、参加者同士で発表・フィードバック</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
       <div class="schedule-timeline" data-pace-schedule="3x4" hidden>
-        <div class="schedule-card"><span class="schedule-num">01</span><span class="schedule-time">3時間</span><span class="schedule-content">環境構築と最初のアプリ作成</span></div>
-        <div class="schedule-card"><span class="schedule-num">02</span><span class="schedule-time">3時間</span><span class="schedule-content">コンテキストエンジニアリング</span></div>
-        <div class="schedule-card"><span class="schedule-num">03</span><span class="schedule-time">3時間</span><span class="schedule-content">データ保存と認証 — セキュリティ</span></div>
-        <div class="schedule-card"><span class="schedule-num">04</span><span class="schedule-time">3時間</span><span class="schedule-content">実践開発・修了制作</span></div>
+      <div class="curriculum-item reveal">
+        <div class="curriculum-number">01</div>
+        <div class="curriculum-card" onclick="toggleCurriculum(this)">
+          <div class="curriculum-header">
+            <div>
+              <span class="curriculum-theme">環境構築と最初のアプリ作成</span>
+              <span class="curriculum-duration">3時間</span>
+            </div>
+            <span class="curriculum-arrow">▼</span>
+          </div>
+          <div class="curriculum-details">
+            <div class="curriculum-details-inner">
+              <div class="curriculum-topics">
+                <div class="curriculum-topic"><span class="check">✓</span> Claude Code導入と環境構築（VS Code / CLI ツール）</div>
+                <div class="curriculum-topic"><span class="check">✓</span> 自然言語でアプリを作る — プロンプトの基本</div>
+                <div class="curriculum-topic"><span class="check">✓</span> Frontend Designプラグインで本格的な見た目に</div>
+                <div class="curriculum-topic"><span class="check">✓</span> Firebase Hosting + GitHubで公開・管理</div>
+              </div>
+              <div class="curriculum-exercise">
+                <div class="curriculum-exercise-label">Hands-on</div>
+                <p>Claude Codeでアプリを作り、Firebase公開・GitHubプッシュまでを体験</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="curriculum-item reveal">
+        <div class="curriculum-number">02</div>
+        <div class="curriculum-card" onclick="toggleCurriculum(this)">
+          <div class="curriculum-header">
+            <div>
+              <span class="curriculum-theme">間違わない作り方 — コンテキストエンジニアリング</span>
+              <span class="curriculum-duration">3時間</span>
+            </div>
+            <span class="curriculum-arrow">▼</span>
+          </div>
+          <div class="curriculum-details">
+            <div class="curriculum-details-inner">
+              <div class="curriculum-topics">
+                <div class="curriculum-topic"><span class="check">✓</span> なぜ「なんとなく指示」だと失敗するのか</div>
+                <div class="curriculum-topic"><span class="check">✓</span> コンテキストエンジニアリング — AIに正しい情報を渡す技術</div>
+                <div class="curriculum-topic"><span class="check">✓</span> Feature Devプラグインで探索→設計→実装の流れを体験</div>
+                <div class="curriculum-topic"><span class="check">✓</span> PRD / CLAUDE.md — AIへの指示と制約を文書で管理する</div>
+              </div>
+              <div class="curriculum-exercise">
+                <div class="curriculum-exercise-label">Hands-on</div>
+                <p>Feature Devでアプリを設計し直し、品質の差を体験する</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="curriculum-item reveal">
+        <div class="curriculum-number">03</div>
+        <div class="curriculum-card" onclick="toggleCurriculum(this)">
+          <div class="curriculum-header">
+            <div>
+              <span class="curriculum-theme">データ保存と認証 — セキュリティの重要性</span>
+              <span class="curriculum-duration">3時間</span>
+            </div>
+            <span class="curriculum-arrow">▼</span>
+          </div>
+          <div class="curriculum-details">
+            <div class="curriculum-details-inner">
+              <div class="curriculum-topics">
+                <div class="curriculum-topic"><span class="check">✓</span> Firestoreでデータ保存 + Authenticationでログイン機能</div>
+                <div class="curriculum-topic"><span class="check">✓</span> AI駆動開発におけるセキュリティの重要性</div>
+                <div class="curriculum-topic"><span class="check">✓</span> プラグインの仕組み — hooks / skills / MCPで構成されている</div>
+                <div class="curriculum-topic"><span class="check">✓</span> AIと対話しながらプラグインをカスタマイズする方法</div>
+              </div>
+              <div class="curriculum-exercise">
+                <div class="curriculum-exercise-label">Hands-on</div>
+                <p>アプリにデータ保存とログイン機能を追加し、認証の重要性を確認する</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="curriculum-item reveal">
+        <div class="curriculum-number">04</div>
+        <div class="curriculum-card" onclick="toggleCurriculum(this)">
+          <div class="curriculum-header">
+            <div>
+              <span class="curriculum-theme">実践開発 + 修了制作</span>
+              <span class="curriculum-duration">3時間</span>
+            </div>
+            <span class="curriculum-arrow">▼</span>
+          </div>
+          <div class="curriculum-details">
+            <div class="curriculum-details-inner">
+              <div class="curriculum-topics">
+                <div class="curriculum-topic"><span class="check">✓</span> 自分の業務課題をアプリ化する実践</div>
+                <div class="curriculum-topic"><span class="check">✓</span> PRD作成 → 開発 → デプロイ → GitHub管理の一連の流れ</div>
+                <div class="curriculum-topic"><span class="check">✓</span> Claude Codeでできること・できないことの整理</div>
+                <div class="curriculum-topic"><span class="check">✓</span> 修了制作の発表とフィードバック</div>
+              </div>
+              <div class="curriculum-exercise">
+                <div class="curriculum-exercise-label">Hands-on</div>
+                <p>自分の業務課題をアプリ化した修了制作を発表する</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
       <div class="schedule-timeline" data-pace-schedule="4x3" hidden>
-        <div class="schedule-card"><span class="schedule-num">01</span><span class="schedule-time">4時間</span><span class="schedule-content">環境構築 + 最初のアプリ作成</span></div>
-        <div class="schedule-card"><span class="schedule-num">02</span><span class="schedule-time">4時間</span><span class="schedule-content">コンテキストエンジニアリング + データ保存・認証</span></div>
-        <div class="schedule-card"><span class="schedule-num">03</span><span class="schedule-time">4時間</span><span class="schedule-content">実践開発・修了制作</span></div>
+      <div class="curriculum-item reveal">
+        <div class="curriculum-number">01</div>
+        <div class="curriculum-card" onclick="toggleCurriculum(this)">
+          <div class="curriculum-header">
+            <div>
+              <span class="curriculum-theme">環境構築 + 最初のアプリ作成</span>
+              <span class="curriculum-duration">4時間</span>
+            </div>
+            <span class="curriculum-arrow">▼</span>
+          </div>
+          <div class="curriculum-details">
+            <div class="curriculum-details-inner">
+              <div class="curriculum-topics">
+                <div class="curriculum-topic"><span class="check">✓</span> Claude Code導入と環境構築</div>
+                <div class="curriculum-topic"><span class="check">✓</span> 自然言語でアプリを作る基本</div>
+                <div class="curriculum-topic"><span class="check">✓</span> Frontend Designで見た目を仕上げる</div>
+                <div class="curriculum-topic"><span class="check">✓</span> Firebase + GitHubで公開・管理まで</div>
+              </div>
+              <div class="curriculum-exercise">
+                <div class="curriculum-exercise-label">Hands-on</div>
+                <p>アプリを作って世界に公開する一連の流れを体験</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="curriculum-item reveal">
+        <div class="curriculum-number">02</div>
+        <div class="curriculum-card" onclick="toggleCurriculum(this)">
+          <div class="curriculum-header">
+            <div>
+              <span class="curriculum-theme">コンテキストエンジニアリング + データ保存・認証</span>
+              <span class="curriculum-duration">4時間</span>
+            </div>
+            <span class="curriculum-arrow">▼</span>
+          </div>
+          <div class="curriculum-details">
+            <div class="curriculum-details-inner">
+              <div class="curriculum-topics">
+                <div class="curriculum-topic"><span class="check">✓</span> コンテキストエンジニアリングで失敗しないAI指示</div>
+                <div class="curriculum-topic"><span class="check">✓</span> PRD / CLAUDE.md でAIへの指示を文書管理</div>
+                <div class="curriculum-topic"><span class="check">✓</span> Firestoreでデータ保存・Authenticationでログイン</div>
+                <div class="curriculum-topic"><span class="check">✓</span> AI駆動開発のセキュリティ</div>
+              </div>
+              <div class="curriculum-exercise">
+                <div class="curriculum-exercise-label">Hands-on</div>
+                <p>仕様書からアプリを設計し直し、データ保存・認証まで実装</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="curriculum-item reveal">
+        <div class="curriculum-number">03</div>
+        <div class="curriculum-card" onclick="toggleCurriculum(this)">
+          <div class="curriculum-header">
+            <div>
+              <span class="curriculum-theme">実践開発 + 修了制作</span>
+              <span class="curriculum-duration">4時間</span>
+            </div>
+            <span class="curriculum-arrow">▼</span>
+          </div>
+          <div class="curriculum-details">
+            <div class="curriculum-details-inner">
+              <div class="curriculum-topics">
+                <div class="curriculum-topic"><span class="check">✓</span> 自分の業務課題をアプリ化する実践</div>
+                <div class="curriculum-topic"><span class="check">✓</span> PRD → 開発 → デプロイ → GitHub管理の一連の流れ</div>
+                <div class="curriculum-topic"><span class="check">✓</span> Claude Codeでできること・できないことの整理</div>
+                <div class="curriculum-topic"><span class="check">✓</span> 修了制作の発表とフィードバック</div>
+              </div>
+              <div class="curriculum-exercise">
+                <div class="curriculum-exercise-label">Hands-on</div>
+                <p>自分の業務課題をアプリ化した修了制作を発表する</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    
     </div>
 
     <p class="curriculum-note reveal">AI関連の技術・ツールは日々急速にアップデートされています。本カリキュラムの内容は最新の状況に応じて随時更新されるため、実際の研修内容は上記と異なる場合があります。最新のカリキュラムについては無料相談にてご案内いたします。</p>
