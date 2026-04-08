@@ -72,19 +72,8 @@
   }
   h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.01em; }
 
-  /* ========== Decorative accents ========== */
-  .accent-dots {
-    position: absolute;
-    width: 24mm; height: 24mm;
-    background-image: radial-gradient(circle, var(--c-border) 1px, transparent 1.5px);
-    background-size: 3mm 3mm;
-    opacity: 0.9;
-    pointer-events: none;
-  }
-
   /* ========== FRONT ========== */
   .front { padding: 12mm 13mm 9mm; display: flex; flex-direction: column; }
-  .front .accent-dots { top: 8mm; right: 8mm; }
   .front-header { display: flex; align-items: center; justify-content: space-between; }
   .brand {
     font-family: var(--font-display);
@@ -524,7 +513,6 @@
 
 <!-- ========== FRONT ========== -->
 <section class="page front">
-  <div class="accent-dots" aria-hidden="true"></div>
   <div class="front-header">
     <div class="brand"><span class="mark"></span>AI開発講座</div>
     <span class="badge">リスキリング補助金対応</span>
