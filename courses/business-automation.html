@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>非エンジニアのための業務省人化 | AI開発講座</title>
-<meta name="description" content="Claude Desktopで日々の業務を自動化。チャット・Coworkモードを使いこなし、コネクタ・プラグイン・スキルで業務効率化。プログラミング不要。2時間×5回の集中研修。リスキリング補助金対応で自己負担9万円。">
+<meta name="description" content="Claude Desktopで日々の業務を自動化。チャット・Coworkモードを使いこなし、コネクタ・プラグイン・スキルで業務効率化。プログラミング不要。全12時間（2h×6/3h×4/4h×3から選択可）。リスキリング補助金対応で自己負担9万円。">
 <meta property="og:title" content="非エンジニアのための業務省人化 | AI開発講座">
-<meta property="og:description" content="Claude Desktopで業務自動化。チャットモードからCoworkモードまで段階的に学び、コネクタ・プラグイン・スキルで定型業務を効率化。リスキリング補助金対応。">
+<meta property="og:description" content="Claude Desktopで業務自動化。チャットモードからCoworkモードまで段階的に学び、コネクタ・プラグイン・スキルで定型業務を効率化。全12時間・3配分から選択可能。リスキリング補助金対応。">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -320,6 +320,91 @@ button { cursor: pointer; border: none; font-family: inherit; }
 /* ========================================
    Curriculum Timeline
    ======================================== */
+/* Pace Selector (受講ペース切替) */
+.pace-selector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 720px;
+  margin: 0 auto 20px;
+}
+.pace-tab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 20px 12px 16px;
+  background: var(--glass-bg);
+  border: 1.5px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  color: var(--c-text);
+  font-family: var(--font-body);
+  cursor: pointer;
+  backdrop-filter: var(--glass-blur);
+  transition: border-color 0.25s, transform 0.25s, background 0.25s, box-shadow 0.25s;
+  text-align: center;
+}
+.pace-tab:hover {
+  border-color: rgba(0,136,255,0.35);
+  transform: translateY(-2px);
+}
+.pace-tab.active {
+  border-color: var(--c-accent);
+  background: rgba(0,136,255,0.10);
+  box-shadow: 0 0 0 3px rgba(0,136,255,0.14);
+}
+.pace-tab:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+}
+.pace-tab .pace-main {
+  font-size: 1.05rem;
+  font-weight: 800;
+  font-family: var(--font-display);
+  color: var(--c-white);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pace-tab { transition: none; }
+  .pace-tab:hover { transform: none; }
+}
+.pace-tab .pace-sub {
+  font-size: 0.78rem;
+  color: var(--c-text-muted);
+}
+.pace-recommended {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--c-accent);
+  color: var(--c-white);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 3px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+.pace-detail {
+  max-width: 720px;
+  margin: 0 auto 36px;
+  padding: 16px 22px;
+  background: rgba(0,136,255,0.05);
+  border-left: 3px solid var(--c-accent);
+  border-radius: var(--radius-sm);
+}
+.pace-description {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--c-text);
+}
+.pace-description[hidden] { display: none; }
+
 .curriculum-timeline {
   margin-top: 48px;
   position: relative;
@@ -684,6 +769,12 @@ button { cursor: pointer; border: none; font-family: inherit; }
   .target-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; }
   .overview-grid { grid-template-columns: 1fr; }
+  .pace-selector { gap: 8px; }
+  .pace-tab { padding: 18px 6px 12px; }
+  .pace-tab .pace-main { font-size: 0.88rem; }
+  .pace-tab .pace-sub { font-size: 0.7rem; }
+  .pace-recommended { font-size: 0.6rem; padding: 2px 8px; top: -8px; }
+  .pace-detail { padding: 14px 16px; font-size: 0.9rem; }
   .curriculum-timeline::before { left: 20px; }
   .curriculum-item { padding-left: 60px; }
   .curriculum-number { left: 0; width: 36px; height: 36px; font-size: 0.8rem; }
@@ -747,7 +838,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
     <div class="course-hero-meta">
       <div class="course-hero-meta-item">
         <span>📅</span>
-        <span><strong>2時間</strong> × 全5回</span>
+        <span><strong>全12時間</strong>（3配分から選択）</span>
       </div>
       <div class="course-hero-meta-item">
         <span>💻</span>
@@ -760,7 +851,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
     </div>
     <div class="course-hero-price">
       <span class="original">¥400,000</span>
-      <span class="actual">¥<span class="gradient-text">90,000</span><small> / 全5回</small></span>
+      <span class="actual">¥<span class="gradient-text">90,000</span><small> / 全12時間</small></span>
     </div>
     <p class="course-hero-subsidy">🎓 リスキリング補助金適用時の自己負担額</p>
     <div class="course-hero-actions">
@@ -802,8 +893,29 @@ button { cursor: pointer; border: none; font-family: inherit; }
 <section class="section" id="curriculum">
   <div class="container">
     <p class="section-label reveal">Curriculum</p>
-    <h2 class="section-title reveal">5回で身につく<br>カリキュラム</h2>
-    <p class="section-subtitle reveal">各回2時間の集中研修。毎回手を動かすハンズオン演習付き。</p>
+    <h2 class="section-title reveal">5モジュール・全12時間で<br>身につくカリキュラム</h2>
+    <p class="section-subtitle reveal">全12時間・5モジュール構成。あなたに合った受講ペースを選べます。</p>
+
+    <div class="pace-selector reveal" role="radiogroup" aria-label="受講ペースを選択">
+      <button type="button" class="pace-tab active" role="radio" data-pace="2x6" aria-checked="true" tabindex="0" onclick="selectPace(this)">
+        <span class="pace-recommended">推奨</span>
+        <span class="pace-main">2時間 × 6回</span>
+        <span class="pace-sub">じっくりペース</span>
+      </button>
+      <button type="button" class="pace-tab" role="radio" data-pace="3x4" aria-checked="false" tabindex="-1" onclick="selectPace(this)">
+        <span class="pace-main">3時間 × 4回</span>
+        <span class="pace-sub">標準ペース</span>
+      </button>
+      <button type="button" class="pace-tab" role="radio" data-pace="4x3" aria-checked="false" tabindex="-1" onclick="selectPace(this)">
+        <span class="pace-main">4時間 × 3回</span>
+        <span class="pace-sub">短期集中</span>
+      </button>
+    </div>
+    <div class="pace-detail reveal" aria-live="polite">
+      <p class="pace-description" data-pace="2x6">1コマ2時間 × 全6回。1モジュールずつ無理なく進められる、欠席にも強い<strong>推奨配分</strong>です。毎モジュール手を動かすハンズオン演習付き。</p>
+      <p class="pace-description" data-pace="3x4">1コマ3時間 × 全4回。週1ペースで効率よく、約1ヶ月で習得できる標準配分です。毎モジュール手を動かすハンズオン演習付き。</p>
+      <p class="pace-description" data-pace="4x3">1コマ4時間 × 全3回。短期間で集中して身につけたい方向けの配分です。毎モジュール手を動かすハンズオン演習付き。</p>
+    </div>
 
     <div class="curriculum-timeline">
       <!-- 第1回 -->
@@ -813,7 +925,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
           <div class="curriculum-header">
             <div>
               <span class="curriculum-theme">Claude Desktopとの初対面</span>
-              <span class="curriculum-duration">2時間</span>
+              <span class="curriculum-duration">学習モジュール</span>
             </div>
             <span class="curriculum-arrow">▼</span>
           </div>
@@ -841,7 +953,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
           <div class="curriculum-header">
             <div>
               <span class="curriculum-theme">コネクタで業務ツールとつなげる</span>
-              <span class="curriculum-duration">2時間</span>
+              <span class="curriculum-duration">学習モジュール</span>
             </div>
             <span class="curriculum-arrow">▼</span>
           </div>
@@ -869,7 +981,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
           <div class="curriculum-header">
             <div>
               <span class="curriculum-theme">プラグインで専門AIに変える</span>
-              <span class="curriculum-duration">2時間</span>
+              <span class="curriculum-duration">学習モジュール</span>
             </div>
             <span class="curriculum-arrow">▼</span>
           </div>
@@ -897,7 +1009,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
           <div class="curriculum-header">
             <div>
               <span class="curriculum-theme">スキルとProjectsで「自分専用AI」を作る</span>
-              <span class="curriculum-duration">2時間</span>
+              <span class="curriculum-duration">学習モジュール</span>
             </div>
             <span class="curriculum-arrow">▼</span>
           </div>
@@ -925,7 +1037,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
           <div class="curriculum-header">
             <div>
               <span class="curriculum-theme">実践ワークフロー + 次のステップ</span>
-              <span class="curriculum-duration">2時間</span>
+              <span class="curriculum-duration">学習モジュール</span>
             </div>
             <span class="curriculum-arrow">▼</span>
           </div>
@@ -998,7 +1110,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
     <div class="overview-grid">
       <div class="overview-card reveal">
         <h3>料金</h3>
-        <p class="overview-price-highlight">¥90,000<small> / 全5回</small></p>
+        <p class="overview-price-highlight">¥90,000<small> / 全12時間</small></p>
         <p style="color: var(--c-text-muted); font-size: 0.9rem; margin-bottom: 12px;">定価 ¥400,000 → リスキリング補助金適用</p>
         <ul>
           <li>1社員あたり3回まで受講可能</li>
@@ -1008,10 +1120,12 @@ button { cursor: pointer; border: none; font-family: inherit; }
       <div class="overview-card reveal">
         <h3>受講形式</h3>
         <ul>
-          <li>2時間 × 全5回の集中研修</li>
-          <li>オンライン受講可能</li>
-          <li>対面参加も可（移動費・宿泊費別途）</li>
-          <li>各回ハンズオン演習付き</li>
+          <li>全12時間 / 5モジュール構成</li>
+          <li>2時間 × 6回（推奨）</li>
+          <li>3時間 × 4回</li>
+          <li>4時間 × 3回</li>
+          <li>オンライン受講可能 / 対面参加も可</li>
+          <li>各モジュールにハンズオン演習付き</li>
         </ul>
       </div>
       <div class="overview-card reveal">
@@ -1116,6 +1230,37 @@ const closeMenu = document.getElementById('closeMenu');
 hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
 closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
 function closeMobileMenu() { mobileMenu.classList.remove('open'); }
+
+/* Pace selector (radiogroup pattern) */
+function selectPace(btn) {
+  const pace = btn.dataset.pace;
+  document.querySelectorAll('.pace-tab').forEach(b => {
+    const isActive = b === btn;
+    b.classList.toggle('active', isActive);
+    b.setAttribute('aria-checked', isActive ? 'true' : 'false');
+    b.setAttribute('tabindex', isActive ? '0' : '-1');
+  });
+  document.querySelectorAll('.pace-description').forEach(p => {
+    p.hidden = p.dataset.pace !== pace;
+  });
+}
+/* Init: hide non-default descriptions (progressive enhancement — no-JS shows all 3) */
+document.querySelectorAll('.pace-description').forEach(p => {
+  if (p.dataset.pace !== '2x6') p.hidden = true;
+});
+/* Arrow key navigation for radiogroup */
+document.querySelectorAll('.pace-selector').forEach(group => {
+  group.addEventListener('keydown', (e) => {
+    if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key)) return;
+    e.preventDefault();
+    const tabs = Array.from(group.querySelectorAll('.pace-tab'));
+    const current = tabs.findIndex(t => t.classList.contains('active'));
+    const isPrev = e.key === 'ArrowLeft' || e.key === 'ArrowUp';
+    const next = (current + (isPrev ? -1 : 1) + tabs.length) % tabs.length;
+    selectPace(tabs[next]);
+    tabs[next].focus();
+  });
+});
 
 /* Curriculum accordion */
 function toggleCurriculum(card) {
