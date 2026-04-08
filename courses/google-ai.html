@@ -965,8 +965,8 @@ button { cursor: pointer; border: none; font-family: inherit; }
 <section class="section" id="curriculum">
   <div class="container">
     <p class="section-label reveal">Curriculum</p>
-    <h2 class="section-title reveal">5モジュール・全12時間で<br>身につくカリキュラム</h2>
-    <p class="section-subtitle reveal">全12時間・5モジュール構成。あなたに合った受講ペースを選べます。</p>
+    <h2 class="section-title reveal">全12時間で身につく<br>カリキュラム</h2>
+    <p class="section-subtitle reveal">あなたに合った受講ペースを選べます。各セッションにはハンズオン演習が含まれます。</p>
 
     <div class="pace-selector reveal" role="radiogroup" aria-label="受講ペースを選択">
       <button type="button" class="pace-tab active" role="radio" data-pace="2x6" aria-checked="true" tabindex="0" onclick="selectPace(this)">
@@ -1012,147 +1012,6 @@ button { cursor: pointer; border: none; font-family: inherit; }
       </div>
     </div>
 
-    <div class="curriculum-timeline">
-      <!-- 第1回 -->
-      <div class="curriculum-item reveal">
-        <div class="curriculum-number">01</div>
-        <div class="curriculum-card" onclick="toggleCurriculum(this)">
-          <div class="curriculum-header">
-            <div>
-              <span class="curriculum-theme">AIでアプリを作る第一歩</span>
-              <span class="curriculum-duration">学習モジュール</span>
-            </div>
-            <span class="curriculum-arrow">▼</span>
-          </div>
-          <div class="curriculum-details">
-            <div class="curriculum-details-inner">
-              <div class="curriculum-topics">
-                <div class="curriculum-topic"><span class="check">✓</span> Gemini Canvasとは何か — 概要と特徴</div>
-                <div class="curriculum-topic"><span class="check">✓</span> Geminiへの指示の出し方（プロンプトの基本）</div>
-                <div class="curriculum-topic"><span class="check">✓</span> Canvas上でシンプルなWebアプリを作成</div>
-                <div class="curriculum-topic"><span class="check">✓</span> 作ったアプリをプレビューで動かしてみる</div>
-              </div>
-              <div class="curriculum-exercise">
-                <div class="curriculum-exercise-label">Hands-on</div>
-                <p>自分の業界に合わせた「業務知識クイズアプリ」をAIへの指示だけで作成し、プレビューで実際に解いてみる</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 第2回 -->
-      <div class="curriculum-item reveal">
-        <div class="curriculum-number">02</div>
-        <div class="curriculum-card" onclick="toggleCurriculum(this)">
-          <div class="curriculum-header">
-            <div>
-              <span class="curriculum-theme">AI Studio Buildモードで本格開発</span>
-              <span class="curriculum-duration">学習モジュール</span>
-            </div>
-            <span class="curriculum-arrow">▼</span>
-          </div>
-          <div class="curriculum-details">
-            <div class="curriculum-details-inner">
-              <div class="curriculum-topics">
-                <div class="curriculum-topic"><span class="check">✓</span> Google AI Studio Buildモードの概要</div>
-                <div class="curriculum-topic"><span class="check">✓</span> 自然言語でフルスタックアプリを構築</div>
-                <div class="curriculum-topic"><span class="check">✓</span> Annotation Mode — UIを指さして修正指示</div>
-                <div class="curriculum-topic"><span class="check">✓</span> チャットで反復改善する方法</div>
-              </div>
-              <div class="curriculum-exercise">
-                <div class="curriculum-exercise-label">Hands-on</div>
-                <p>ToDoアプリをBuildモードで作成し、Annotation Modeでデザインを調整する</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 第3回 -->
-      <div class="curriculum-item reveal">
-        <div class="curriculum-number">03</div>
-        <div class="curriculum-card" onclick="toggleCurriculum(this)">
-          <div class="curriculum-header">
-            <div>
-              <span class="curriculum-theme">仕様書駆動 — AIに「何を作るか」を正しく伝える</span>
-              <span class="curriculum-duration">学習モジュール</span>
-            </div>
-            <span class="curriculum-arrow">▼</span>
-          </div>
-          <div class="curriculum-details">
-            <div class="curriculum-details-inner">
-              <div class="curriculum-topics">
-                <div class="curriculum-topic"><span class="check">✓</span> Vibe Coding（なんとなく指示）の限界を知る</div>
-                <div class="curriculum-topic"><span class="check">✓</span> 仕様書駆動の考え方 — まず「何を作るか」を定義する</div>
-                <div class="curriculum-topic"><span class="check">✓</span> AIに仕様書を書かせる → 仕様書を元にアプリを作らせる</div>
-                <div class="curriculum-topic"><span class="check">✓</span> バージョン管理で変更履歴を残す</div>
-              </div>
-              <div class="curriculum-exercise">
-                <div class="curriculum-exercise-label">Hands-on</div>
-                <p>AIに仕様書を書かせてからアプリを作らせ、「なんとなく指示」との品質の差を体験する</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 第4回 -->
-      <div class="curriculum-item reveal">
-        <div class="curriculum-number">04</div>
-        <div class="curriculum-card" onclick="toggleCurriculum(this)">
-          <div class="curriculum-header">
-            <div>
-              <span class="curriculum-theme">Firebase連携 — データ保存とログイン機能</span>
-              <span class="curriculum-duration">学習モジュール</span>
-            </div>
-            <span class="curriculum-arrow">▼</span>
-          </div>
-          <div class="curriculum-details">
-            <div class="curriculum-details-inner">
-              <div class="curriculum-topics">
-                <div class="curriculum-topic"><span class="check">✓</span> Firebaseとは — Googleが提供するアプリ開発基盤の全体像</div>
-                <div class="curriculum-topic"><span class="check">✓</span> Firestoreでアプリにデータ保存機能を追加する</div>
-                <div class="curriculum-topic"><span class="check">✓</span> Firestoreのセキュリティルール — 誰がデータにアクセスできるかを確認する</div>
-                <div class="curriculum-topic"><span class="check">✓</span> Authenticationでログイン機能を追加する</div>
-              </div>
-              <div class="curriculum-exercise">
-                <div class="curriculum-exercise-label">Hands-on</div>
-                <p>アプリにFirestoreでのデータ保存とGoogleログイン機能を追加し、動作確認する</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 第5回 -->
-      <div class="curriculum-item reveal">
-        <div class="curriculum-number">05</div>
-        <div class="curriculum-card" onclick="toggleCurriculum(this)">
-          <div class="curriculum-header">
-            <div>
-              <span class="curriculum-theme">限界を知り、次のステップへ + 修了制作</span>
-              <span class="curriculum-duration">学習モジュール</span>
-            </div>
-            <span class="curriculum-arrow">▼</span>
-          </div>
-          <div class="curriculum-details">
-            <div class="curriculum-details-inner">
-              <div class="curriculum-topics">
-                <div class="curriculum-topic"><span class="check">✓</span> Canvas / AI Studio Buildで「できること」と「できないこと」</div>
-                <div class="curriculum-topic"><span class="check">✓</span> ここから先の選択肢 — Claude Code、受託開発、保守運用</div>
-                <div class="curriculum-topic"><span class="check">✓</span> 全モジュールの学びの振り返りと次のアクション設計</div>
-                <div class="curriculum-topic"><span class="check">✓</span> 修了制作の発表とフィードバック</div>
-              </div>
-              <div class="curriculum-exercise">
-                <div class="curriculum-exercise-label">Hands-on</div>
-                <p>自分の業務課題をアプリ化した修了制作を発表し、「次に何をすべきか」を明確にする</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <p class="curriculum-note reveal">AI関連の技術・ツールは日々急速にアップデートされています。本カリキュラムの内容は最新の状況に応じて随時更新されるため、実際の研修内容は上記と異なる場合があります。最新のカリキュラムについては無料相談にてご案内いたします。</p>
   </div>
 </section>
@@ -1215,7 +1074,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
       <div class="overview-card reveal">
         <h3>受講形式</h3>
         <ul>
-          <li>全12時間 / 5モジュール構成</li>
+          <li>全12時間構成</li>
           <li>2時間 × 6回（推奨）</li>
           <li>3時間 × 4回</li>
           <li>4時間 × 3回</li>

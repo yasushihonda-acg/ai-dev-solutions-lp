@@ -965,8 +965,8 @@ button { cursor: pointer; border: none; font-family: inherit; }
 <section class="section" id="curriculum">
   <div class="container">
     <p class="section-label reveal">Curriculum</p>
-    <h2 class="section-title reveal">5モジュール・全12時間で<br>身につくカリキュラム</h2>
-    <p class="section-subtitle reveal">全12時間・5モジュール構成。あなたに合った受講ペースを選べます。</p>
+    <h2 class="section-title reveal">全12時間で身につく<br>カリキュラム</h2>
+    <p class="section-subtitle reveal">あなたに合った受講ペースを選べます。各セッションにはハンズオン演習が含まれます。</p>
 
     <div class="pace-selector reveal" role="radiogroup" aria-label="受講ペースを選択">
       <button type="button" class="pace-tab active" role="radio" data-pace="2x6" aria-checked="true" tabindex="0" onclick="selectPace(this)">
@@ -1012,147 +1012,6 @@ button { cursor: pointer; border: none; font-family: inherit; }
       </div>
     </div>
 
-    <div class="curriculum-timeline">
-      <!-- 第1回 -->
-      <div class="curriculum-item reveal">
-        <div class="curriculum-number">01</div>
-        <div class="curriculum-card" onclick="toggleCurriculum(this)">
-          <div class="curriculum-header">
-            <div>
-              <span class="curriculum-theme">Claude Desktopとの初対面</span>
-              <span class="curriculum-duration">学習モジュール</span>
-            </div>
-            <span class="curriculum-arrow">▼</span>
-          </div>
-          <div class="curriculum-details">
-            <div class="curriculum-details-inner">
-              <div class="curriculum-topics">
-                <div class="curriculum-topic"><span class="check">✓</span> Claude Desktopのインストールとセットアップ</div>
-                <div class="curriculum-topic"><span class="check">✓</span> Anthropicアカウント作成・Proプランの契約と料金体系</div>
-                <div class="curriculum-topic"><span class="check">✓</span> チャットモードの基本 — プロンプトの書き方・Artifacts・ファイル作成</div>
-                <div class="curriculum-topic"><span class="check">✓</span> チャット / Cowork / コード — 3つのモードの違いを理解する</div>
-              </div>
-              <div class="curriculum-exercise">
-                <div class="curriculum-exercise-label">Hands-on</div>
-                <p>チャットモードでArtifactsを使い業務日報テンプレートを作成、ファイル作成機能で.docxに出力する</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 第2回 -->
-      <div class="curriculum-item reveal">
-        <div class="curriculum-number">02</div>
-        <div class="curriculum-card" onclick="toggleCurriculum(this)">
-          <div class="curriculum-header">
-            <div>
-              <span class="curriculum-theme">コネクタで業務ツールとつなげる</span>
-              <span class="curriculum-duration">学習モジュール</span>
-            </div>
-            <span class="curriculum-arrow">▼</span>
-          </div>
-          <div class="curriculum-details">
-            <div class="curriculum-details-inner">
-              <div class="curriculum-topics">
-                <div class="curriculum-topic"><span class="check">✓</span> Coworkモードに入る — マルチステップタスクの自律実行とは</div>
-                <div class="curriculum-topic"><span class="check">✓</span> コネクタの仕組みと設定（Google Drive・Gmail等）</div>
-                <div class="curriculum-topic"><span class="check">✓</span> ファイルのアップロードと分析 — PDFやExcelの中身をAIに読ませる</div>
-                <div class="curriculum-topic"><span class="check">✓</span> コネクタ経由でクラウド上の資料を直接操作する</div>
-              </div>
-              <div class="curriculum-exercise">
-                <div class="curriculum-exercise-label">Hands-on</div>
-                <p>Google Driveの資料をコネクタ経由でAIに要約させ、報告メールの下書きを作成する</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 第3回 -->
-      <div class="curriculum-item reveal">
-        <div class="curriculum-number">03</div>
-        <div class="curriculum-card" onclick="toggleCurriculum(this)">
-          <div class="curriculum-header">
-            <div>
-              <span class="curriculum-theme">プラグインで専門AIに変える</span>
-              <span class="curriculum-duration">学習モジュール</span>
-            </div>
-            <span class="curriculum-arrow">▼</span>
-          </div>
-          <div class="curriculum-details">
-            <div class="curriculum-details-inner">
-              <div class="curriculum-topics">
-                <div class="curriculum-topic"><span class="check">✓</span> プラグインとは — スキル・コネクタ・コマンドのバンドル</div>
-                <div class="curriculum-topic"><span class="check">✓</span> プラグインマーケットプレイスからの導入方法</div>
-                <div class="curriculum-topic"><span class="check">✓</span> 業種・部門別プラグインの活用（営業・経理・人事・総務等）</div>
-                <div class="curriculum-topic"><span class="check">✓</span> スラッシュコマンド（/）でスキルを呼び出す実践</div>
-              </div>
-              <div class="curriculum-exercise">
-                <div class="curriculum-exercise-label">Hands-on</div>
-                <p>自社業務に合うプラグインを導入し、スラッシュコマンドで実務タスクを実行する</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 第4回 -->
-      <div class="curriculum-item reveal">
-        <div class="curriculum-number">04</div>
-        <div class="curriculum-card" onclick="toggleCurriculum(this)">
-          <div class="curriculum-header">
-            <div>
-              <span class="curriculum-theme">スキルとProjectsで「自分専用AI」を作る</span>
-              <span class="curriculum-duration">学習モジュール</span>
-            </div>
-            <span class="curriculum-arrow">▼</span>
-          </div>
-          <div class="curriculum-details">
-            <div class="curriculum-details-inner">
-              <div class="curriculum-topics">
-                <div class="curriculum-topic"><span class="check">✓</span> /skill-creatorでカスタムスキルを作成する</div>
-                <div class="curriculum-topic"><span class="check">✓</span> Projectsで永続ワークスペースを構築（メモリ・ファイル・指示）</div>
-                <div class="curriculum-topic"><span class="check">✓</span> スケジュールタスクで定期業務を自動化（毎朝ブリーフィング等）</div>
-                <div class="curriculum-topic"><span class="check">✓</span> スキル × ファイル作成で定型レポートを一発生成</div>
-              </div>
-              <div class="curriculum-exercise">
-                <div class="curriculum-exercise-label">Hands-on</div>
-                <p>自社FAQ対応のカスタムスキルを作成し、Projectsに登録して繰り返し使える環境を構築する</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 第5回 -->
-      <div class="curriculum-item reveal">
-        <div class="curriculum-number">05</div>
-        <div class="curriculum-card" onclick="toggleCurriculum(this)">
-          <div class="curriculum-header">
-            <div>
-              <span class="curriculum-theme">実践ワークフロー + 次のステップ</span>
-              <span class="curriculum-duration">学習モジュール</span>
-            </div>
-            <span class="curriculum-arrow">▼</span>
-          </div>
-          <div class="curriculum-details">
-            <div class="curriculum-details-inner">
-              <div class="curriculum-topics">
-                <div class="curriculum-topic"><span class="check">✓</span> コネクタ × プラグイン × スキルを組み合わせたワークフロー設計</div>
-                <div class="curriculum-topic"><span class="check">✓</span> セキュリティとプライバシーの注意点</div>
-                <div class="curriculum-topic"><span class="check">✓</span> 社内展開のステップと部署別活用事例</div>
-                <div class="curriculum-topic"><span class="check">✓</span> さらにその先へ — Claude Code（CLI）という上位互換の紹介</div>
-              </div>
-              <div class="curriculum-exercise">
-                <div class="curriculum-exercise-label">Hands-on</div>
-                <p>自分の業務で使えるAI自動化ワークフローを設計し、成果を発表する</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <p class="curriculum-note reveal">AI関連の技術・ツールは日々急速にアップデートされています。本カリキュラムの内容は最新の状況に応じて随時更新されるため、実際の研修内容は上記と異なる場合があります。最新のカリキュラムについては無料相談にてご案内いたします。</p>
   </div>
 </section>
@@ -1215,7 +1074,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
       <div class="overview-card reveal">
         <h3>受講形式</h3>
         <ul>
-          <li>全12時間 / 5モジュール構成</li>
+          <li>全12時間構成</li>
           <li>2時間 × 6回（推奨）</li>
           <li>3時間 × 4回</li>
           <li>4時間 × 3回</li>
